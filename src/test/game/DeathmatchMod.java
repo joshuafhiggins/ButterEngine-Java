@@ -1,8 +1,7 @@
 package test.game;
 
 import me.toast.engine.Mod;
-import me.toast.engine.meshes.ColoredMesh;
-import me.toast.engine.meshes.Mesh;
+import me.toast.engine.rendering.meshes.ColoredMesh;
 import me.toast.engine.rendering.Shaders;
 import me.toast.engine.rendering.Vertex;
 import org.joml.Vector3f;
@@ -28,7 +27,7 @@ public class DeathmatchMod extends Mod {
         }, new int[] {
                 0, 1, 2,
                 0, 3, 2
-        });
+        }, 2);
 
         super.Init();
     }

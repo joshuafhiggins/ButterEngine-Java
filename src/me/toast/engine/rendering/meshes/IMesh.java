@@ -1,4 +1,4 @@
-package me.toast.engine.meshes;
+package me.toast.engine.rendering.meshes;
 
 import me.toast.engine.rendering.Shader;
 
