@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aceb847e-ef3b-4147-9266-0dfe0bfe11f2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/ButterEngine.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/ButterEngine.ipr" afterDir="false" />
+    <list default="true" id="aceb847e-ef3b-4147-9266-0dfe0bfe11f2" name="Default Changelist" comment="Meshes should give the number attribs and storing data should be made more dynamic.">
+      <change afterPath="$PROJECT_DIR$/libs/slick-util3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/toast/engine/rendering/Material.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/toast/engine/rendering/meshes/TexturedMesh.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ButterEngine.iws" beforeDir="false" afterPath="$PROJECT_DIR$/ButterEngine.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/toast/engine/meshes/ColoredMesh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/toast/engine/rendering/meshes/ColoredMesh.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/toast/engine/meshes/IMesh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/toast/engine/rendering/meshes/IMesh.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/toast/engine/meshes/Mesh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/toast/engine/rendering/meshes/Mesh.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/game/DeathmatchMod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/game/DeathmatchMod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/toast/engine/Mod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/toast/engine/Mod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/toast/engine/rendering/Vertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/toast/engine/rendering/Vertex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/toast/engine/rendering/meshes/IMesh.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/toast/engine/rendering/meshes/Mesh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/toast/engine/rendering/meshes/BasicMesh.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,23 +20,34 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="GLSL Shader" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/test/game/DeathmatchMod.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/me/toast/engine/rendering/meshes/ColoredMesh.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/me/toast/engine/rendering/meshes/TexturedMesh.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/me/toast/engine/rendering/Material.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/me/toast/engine/rendering/meshes/BasicMesh.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectId" id="1vEIT2zVXDJiR9ouxaZsZ4M9jZ2" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/libs/joml-1.10.1-javadoc.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../tf2-opengl" />
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.23718713" />
@@ -75,6 +88,14 @@
       <option name="presentableId" value="Default" />
       <updated>1626120826953</updated>
     </task>
+    <task id="LOCAL-00001" summary="Meshes should give the number attribs and storing data should be made more dynamic.">
+      <created>1626373999780</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1626373999780</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -87,5 +108,11 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Meshes should give the number attribs and storing data should be made more dynamic." />
+    <option name="LAST_COMMIT_MESSAGE" value="Meshes should give the number attribs and storing data should be made more dynamic." />
   </component>
 </project>

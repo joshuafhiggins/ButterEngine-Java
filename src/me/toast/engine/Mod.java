@@ -1,6 +1,6 @@
 package me.toast.engine;
 
-//TODO: Try to make a distinction between the engine and a mod
+//TODO: Try to make a distinction between the engine and a mod //TODO: See if IMod is really needed for what we are doing
 public class Mod implements IMod {
 
     public static Mod LOADED_MOD;

@@ -8,7 +8,7 @@ import java.nio.*;
 
 import static org.lwjgl.opengl.GL30.*;
 
-public class Mesh {
+public class BasicMesh {
 
     public int VAO, VBO, IBO;
 
@@ -18,7 +18,7 @@ public class Mesh {
 
     final int numberOfAttrib;
 
-    public Mesh(Vertex[] vertices, int[] indices, int numberOfAttrib) {
+    public BasicMesh(Vertex[] vertices, int[] indices, int numberOfAttrib) {
         this.vertices = vertices;
         this.indices = indices;
         this.numberOfAttrib = numberOfAttrib;
