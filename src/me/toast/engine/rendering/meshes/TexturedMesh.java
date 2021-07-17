@@ -1,5 +1,6 @@
 package me.toast.engine.rendering.meshes;
 
+import me.toast.engine.rendering.Material;
 import me.toast.engine.rendering.Shader;
 import me.toast.engine.rendering.Vertex;
 import org.lwjgl.system.MemoryUtil;
@@ -16,7 +17,6 @@ public class TexturedMesh {
     //Useful for getting information about the arrays //Can't do anything else
     final Vertex[] vertices;
     final int[] indices;
-
     final int numberOfAttrib;
 
     public TexturedMesh(Vertex[] vertices, int[] indices, int numberOfAttrib) {
@@ -32,33 +32,16 @@ public class TexturedMesh {
         glBindVertexArray(VAO);
 
             FloatBuffer positionBuffer = MemoryUtil.memAllocFloat(vertices.length * 3);
-            float[] positionData = new float[vertices.length * 3];
-            for (int i = 0; i < vertices.length; i++) {
-                positionData[i * 3] = vertices[i].position.x;
-                positionData[i * 3 + 1] = vertices[i].position.y;
-                positionData[i * 3 + 2] = vertices[i].position.z;
-            }
-            positionBuffer.put(positionData).flip();
+            positionBuffer.put(Vertex.getPositionData(vertices)).flip();
             VBO = storeData(positionBuffer, 0, 3);
 
-            FloatBuffer colorBuffer = MemoryUtil.memAllocFloat(vertices.length * 3);
-            float[] colorData = new float[vertices.length * 3];
-            for (int i = 0; i < vertices.length; i++) {
-                colorData[i * 3] = vertices[i].color.x;
-                colorData[i * 3 + 1] = vertices[i].color.y;
-                colorData[i * 3 + 2] = vertices[i].color.z;
-            }
-            colorBuffer.put(colorData).flip();
-            CBO = storeData(colorBuffer, 1, 3);
+            /*FloatBuffer colorBuffer = MemoryUtil.memAllocFloat(vertices.length * 3);
+            colorBuffer.put(Vertex.getColorData(vertices)).flip();
+            CBO = storeData(colorBuffer, 1, 3);*/
 
             FloatBuffer textureBuffer = MemoryUtil.memAllocFloat(vertices.length * 2);
-            float[] textureData = new float[vertices.length * 2];
-            for (int i = 0; i < vertices.length; i++) {
-                textureData[i * 2] = vertices[i].texCoord.x;
-                textureData[i * 2 + 1] = vertices[i].texCoord.y;
-            }
-            textureBuffer.put(textureData).flip();
-            TBO = storeData(textureBuffer, 2, 2);
+            textureBuffer.put(Vertex.getTextureCoordData(vertices)).flip();
+            TBO = storeData(textureBuffer, 1, 2);
 
             IntBuffer indicesBuffer = MemoryUtil.memAllocInt(indices.length);
             indicesBuffer.put(indices).flip();
@@ -79,13 +62,15 @@ public class TexturedMesh {
         return bufferID;
     }
 
-    public void Render(Shader shader) {
+    public void Render(Shader shader, Material material) {
         glBindVertexArray(VAO);
             enableVertexAttrib();
                 glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
-                    shader.Bind();
-                        glDrawElements(GL_TRIANGLES, indices.length, GL_UNSIGNED_INT, 0);
-                    shader.Unbind();
+                    material.Bind();
+                        shader.Bind();
+                            glDrawElements(GL_TRIANGLES, indices.length, GL_UNSIGNED_INT, 0);
+                        shader.Unbind();
+                    material.Unbind();
                 glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
             disableVertexAttrib();
         glBindVertexArray(0);

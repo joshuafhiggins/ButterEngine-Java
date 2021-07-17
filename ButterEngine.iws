@@ -2,8 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aceb847e-ef3b-4147-9266-0dfe0bfe11f2" name="Default Changelist" comment="Meshes should give the number attribs and storing data should be made more dynamic.">
+      <change afterPath="$PROJECT_DIR$/resources/assets/shaders/TEXTURED_MESH.frag" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/assets/shaders/TEXTURED_MESH.vert" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/assets/textures/dirt_Albedo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ButterEngine.iws" beforeDir="false" afterPath="$PROJECT_DIR$/ButterEngine.iws" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/shaders/BASIC_RENDERING.frag" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/shaders/BASIC_MESH.frag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/shaders/BASIC_RENDERING.vert" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/shaders/BASIC_MESH.vert" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/me/toast/engine/rendering/Material.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/toast/engine/rendering/Material.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/toast/engine/rendering/Shaders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/toast/engine/rendering/Shaders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/toast/engine/rendering/Vertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/toast/engine/rendering/Vertex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/toast/engine/rendering/meshes/BasicMesh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/toast/engine/rendering/meshes/BasicMesh.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/toast/engine/rendering/meshes/ColoredMesh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/toast/engine/rendering/meshes/ColoredMesh.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/toast/engine/rendering/meshes/TexturedMesh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/toast/engine/rendering/meshes/TexturedMesh.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/toast/engine/utils/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/toast/engine/utils/FileUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/game/DeathmatchMod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/game/DeathmatchMod.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

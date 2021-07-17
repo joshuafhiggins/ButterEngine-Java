@@ -31,13 +31,7 @@ public class BasicMesh {
         glBindVertexArray(VAO);
 
             FloatBuffer positionBuffer = MemoryUtil.memAllocFloat(vertices.length * 3);
-            float[] positionData = new float[vertices.length * 3];
-            for (int i = 0; i < vertices.length; i++) {
-                positionData[i * 3] = vertices[i].position.x;
-                positionData[i * 3 + 1] = vertices[i].position.y;
-                positionData[i * 3 + 2] = vertices[i].position.z;
-            }
-            positionBuffer.put(positionData).flip();
+            positionBuffer.put(Vertex.getPositionData(vertices)).flip();
             VBO = storeData(positionBuffer, 0, 3);
 
             IntBuffer indicesBuffer = MemoryUtil.memAllocInt(indices.length);
@@ -61,24 +55,24 @@ public class BasicMesh {
     
     public void Render(Shader shader) {
         glBindVertexArray(VAO);
-            glEnableVertexAttribArray(0);
+            enableVertexAttrib();
                 glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
                     shader.Bind();
                         glDrawElements(GL_TRIANGLES, indices.length, GL_UNSIGNED_INT, 0);
                     shader.Unbind();
                 glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-            glDisableVertexAttribArray(0);
+            disableVertexAttrib();
         glBindVertexArray(0);
     }
 
     private void enableVertexAttrib() {
-        for (int i = 0; i < numberOfAttrib; i++) {
+        for (int i = 0; i < numberOfAttrib - 1; i++) {
             glEnableVertexAttribArray(i);
         }
     }
 
     private void disableVertexAttrib() {
-        for (int i = 0; i < numberOfAttrib; i++) {
+        for (int i = 0; i < numberOfAttrib - 1; i++) {
             glDisableVertexAttribArray(i);
         }
     }

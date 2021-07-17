@@ -32,23 +32,11 @@ public class ColoredMesh {
         glBindVertexArray(VAO);
 
             FloatBuffer positionBuffer = MemoryUtil.memAllocFloat(vertices.length * 3);
-            float[] positionData = new float[vertices.length * 3];
-            for (int i = 0; i < vertices.length; i++) {
-                positionData[i * 3] = vertices[i].position.x;
-                positionData[i * 3 + 1] = vertices[i].position.y;
-                positionData[i * 3 + 2] = vertices[i].position.z;
-            }
-            positionBuffer.put(positionData).flip();
+            positionBuffer.put(Vertex.getPositionData(vertices)).flip();
             VBO = storeData(positionBuffer, 0, 3);
 
             FloatBuffer colorBuffer = MemoryUtil.memAllocFloat(vertices.length * 3);
-            float[] colorData = new float[vertices.length * 3];
-            for (int i = 0; i < vertices.length; i++) {
-                colorData[i * 3] = vertices[i].color.x();
-                colorData[i * 3 + 1] = vertices[i].color.y();
-                colorData[i * 3 + 2] = vertices[i].color.z();
-            }
-            colorBuffer.put(colorData).flip();
+            colorBuffer.put(Vertex.getColorData(vertices)).flip();
             CBO = storeData(colorBuffer, 1, 3);
 
             IntBuffer indicesBuffer = MemoryUtil.memAllocInt(indices.length);
