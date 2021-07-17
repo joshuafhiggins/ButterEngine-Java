@@ -13,7 +13,6 @@ public class Material {
 
     //Rest of textures should go here
     public Texture Albedo;
-    public int ID;
 
     public Material(String path) {
         try {
@@ -23,7 +22,11 @@ public class Material {
         }
     }
 
-    public void destroy() {
+    public void Bind() {
+        
+    }
+
+    public void Destroy() {
         //Rest of textures should go here
         glDeleteTextures(Albedo.getTextureID());
     }
