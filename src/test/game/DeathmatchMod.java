@@ -1,20 +1,15 @@
 package test.game;
 
 import me.toast.engine.Mod;
-import me.toast.engine.rendering.Material;
-import me.toast.engine.rendering.meshes.ColoredMesh;
-import me.toast.engine.rendering.Shaders;
-import me.toast.engine.rendering.Vertex;
-import me.toast.engine.rendering.meshes.TexturedMesh;
-import org.joml.Vector2f;
-import org.joml.Vector3f;
+import me.toast.engine.rendering.*;
+import me.toast.engine.rendering.meshes.*;
+import org.joml.*;
 
 import static org.lwjgl.glfw.GLFW.*;
 
 public class DeathmatchMod extends Mod {
 
-    public TexturedMesh mesh;
-    public Material material;
+    public Mesh mesh;
 
     public DeathmatchMod(String ID, String name, String description, String author) {
         super(ID, name, description, author);
@@ -31,9 +26,7 @@ public class DeathmatchMod extends Mod {
         }, new int[] {
                 0, 1, 2,
                 0, 3, 2
-        }, 2);
-
-        material = new Material("dirt");
+        });
 
         super.Init();
     }
@@ -53,7 +46,7 @@ public class DeathmatchMod extends Mod {
 
         @Override
         public void Render() {
-            mesh.Render(Shaders.TEXTURED_MESH, material);
+            mesh.Render(Shaders.TEXTURED_MESH, Materials.SMILEY);
 
             super.Render();
         }
@@ -61,8 +54,9 @@ public class DeathmatchMod extends Mod {
     @Override
     public void Shutdown() {
         Shaders.Destroy();
+        Materials.Destroy();
+
         mesh.Destroy();
-        material.Destroy();
 
         super.Shutdown();
     }

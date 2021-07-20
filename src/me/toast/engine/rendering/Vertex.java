@@ -27,33 +27,4 @@ public class Vertex {
         this.color = color;
         this.texCoord = texCoord;
     }
-
-    public static float[] getPositionData(Vertex[] vertices) {
-        float[] positionData = new float[vertices.length * 3];
-        for (int i = 0; i < vertices.length; i++) {
-            positionData[i * 3] = vertices[i].position.x;
-            positionData[i * 3 + 1] = vertices[i].position.y;
-            positionData[i * 3 + 2] = vertices[i].position.z;
-        }
-        return positionData;
-    }
-
-    public static float[] getColorData(Vertex[] vertices) {
-        float[] colorData = new float[vertices.length * 3];
-        for (int i = 0; i < vertices.length; i++) {
-            colorData[i * 3] = vertices[i].color.x;
-            colorData[i * 3 + 1] = vertices[i].color.y;
-            colorData[i * 3 + 2] = vertices[i].color.z;
-        }
-        return colorData;
-    }
-
-    public static float[] getTextureCoordData(Vertex[] vertices) {
-        float[] textureData = new float[vertices.length * 2];
-        for (int i = 0; i < vertices.length; i++) {
-            textureData[i * 2] = vertices[i].texCoord.x;
-            textureData[i * 2 + 1] = vertices[i].texCoord.y;
-        }
-        return textureData;
-    }
 }
