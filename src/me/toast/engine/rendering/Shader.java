@@ -1,6 +1,12 @@
 package me.toast.engine.rendering;
 
 import me.toast.engine.utils.FileUtils;
+import org.joml.Matrix4f;
+import org.joml.Vector2f;
+import org.joml.Vector3f;
+import org.lwjgl.system.MemoryUtil;
+
+import java.nio.FloatBuffer;
 
 import static org.lwjgl.opengl.GL30.*;
 
@@ -56,6 +62,20 @@ public class Shader {
         glDeleteShader(fragmentID);
     }
 
+    public int getUniformLocation(String name) { return glGetUniformLocation(ID, name); }
+
+    //TODO: Make all types of uniforms setable PS. just try to find some code somewhere
+    public void setUniform(String name, float value) { glUniform1f(getUniformLocation(name), value); }
+    public void setUniform(String name, int value) { glUniform1i(getUniformLocation(name), value); }
+    public void setUniform(String name, boolean value) { glUniform1i(getUniformLocation(name), value ? 1 : 0); }
+    public void setUniform(String name, Vector2f value) { glUniform2f(getUniformLocation(name), value.x, value.y); }
+    public void setUniform(String name, Vector3f value) { glUniform3f(getUniformLocation(name), value.x, value.y, value.z); }
+    public void setUniform(String name, Matrix4f value) {
+        FloatBuffer buffer = MemoryUtil.memAllocFloat(16);
+        value.get(buffer);
+        glUniformMatrix4fv(getUniformLocation(name), true, buffer);
+    }
+    
     //Bind the shader for the mesh to use
     public void Bind() {
         glUseProgram(ID);
@@ -66,7 +86,7 @@ public class Shader {
         glUseProgram(0);
     }
 
-    //Destroy the shader on Shutdown() //TODO: Check if destroy checks are required for stability or only good practice
+    //Destroy the shader on Shutdown() //TODO: Check if the tutorial is right about destroying shaders
     public void Destroy() {
         glDeleteProgram(ID);
     }

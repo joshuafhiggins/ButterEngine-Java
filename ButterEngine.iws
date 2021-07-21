@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aceb847e-ef3b-4147-9266-0dfe0bfe11f2" name="Default Changelist" comment="Meshes should give the number attribs and storing data should be made more dynamic.">
-      <change afterPath="$PROJECT_DIR$/src/me/toast/engine/rendering/BufferObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/me/toast/engine/rendering/Materials.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/me/toast/engine/rendering/meshes/Mesh.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ButterEngine.iws" beforeDir="false" afterPath="$PROJECT_DIR$/ButterEngine.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/assets/shaders/TEXTURED_MESH.frag" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/shaders/TEXTURED_MESH.frag" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/assets/shaders/TEXTURED_MESH.vert" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/shaders/TEXTURED_MESH.vert" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/toast/engine/rendering/Vertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/toast/engine/rendering/Vertex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/toast/engine/rendering/meshes/BasicMesh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/toast/engine/rendering/meshes/BasicMesh.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/toast/engine/rendering/meshes/ColoredMesh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/toast/engine/rendering/meshes/ColoredMesh.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/toast/engine/rendering/meshes/TexturedMesh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/toast/engine/rendering/meshes/TexturedMesh.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/game/DeathmatchMod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/game/DeathmatchMod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/toast/engine/rendering/Shader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/toast/engine/rendering/Shader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +28,9 @@
     <setting file="file://$PROJECT_DIR$/src/me/toast/engine/rendering/meshes/TexturedMesh.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/me/toast/engine/rendering/meshes/ColoredMesh.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/me/toast/engine/rendering/meshes/BasicMesh.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
   </component>
   <component name="ProjectId" id="1vEIT2zVXDJiR9ouxaZsZ4M9jZ2" />
   <component name="ProjectLevelVcsManager">
