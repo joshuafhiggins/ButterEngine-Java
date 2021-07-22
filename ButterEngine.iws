@@ -2,8 +2,44 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aceb847e-ef3b-4147-9266-0dfe0bfe11f2" name="Default Changelist" comment="Meshes should give the number attribs and storing data should be made more dynamic.">
+      <change afterPath="$PROJECT_DIR$/libs/assimp_license.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/dyncall_license.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/glfw_license.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/joml_license.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/khronos_license.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/lwjgl-assimp-natives-linux-arm32.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/lwjgl-assimp-natives-linux-arm64.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/lwjgl-assimp-natives-linux.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/lwjgl-assimp-natives-macos.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/lwjgl-assimp-natives-windows-x86.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/lwjgl-glfw-natives-linux-arm32.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/lwjgl-glfw-natives-linux-arm64.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/lwjgl-glfw-natives-linux.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/lwjgl-glfw-natives-macos.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/lwjgl-glfw-natives-windows-x86.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/lwjgl-natives-linux-arm32.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/lwjgl-natives-linux-arm64.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/lwjgl-natives-linux.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/lwjgl-natives-macos.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/lwjgl-natives-windows-x86.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/lwjgl-openal-natives-linux-arm32.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/lwjgl-openal-natives-linux-arm64.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/lwjgl-openal-natives-linux.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/lwjgl-openal-natives-macos.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/lwjgl-openal-natives-windows-x86.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/lwjgl-opengl-natives-linux-arm32.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/lwjgl-opengl-natives-linux-arm64.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/lwjgl-opengl-natives-linux.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/lwjgl-opengl-natives-macos.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/lwjgl-opengl-natives-windows-x86.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/lwjgl-stb-natives-linux-arm32.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/lwjgl-stb-natives-linux-arm64.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/lwjgl-stb-natives-linux.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/lwjgl-stb-natives-macos.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/lwjgl-stb-natives-windows-x86.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/lwjgl_license.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/openal_soft_license.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ButterEngine.iws" beforeDir="false" afterPath="$PROJECT_DIR$/ButterEngine.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/toast/engine/rendering/Shader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/toast/engine/rendering/Shader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,11 +59,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/test/game/DeathmatchMod.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/me/toast/engine/rendering/Material.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/test/game/DeathmatchMod.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/me/toast/engine/rendering/meshes/TexturedMesh.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/me/toast/engine/rendering/meshes/ColoredMesh.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/me/toast/engine/rendering/meshes/BasicMesh.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/me/toast/engine/rendering/meshes/ColoredMesh.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedIndex" value="1" />

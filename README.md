@@ -28,4 +28,5 @@ Butter Engine is a game engine made in LWJGL and uses it's subset libraries for 
    - [ ] If not SteamWorks, KyroNet
    - [ ] Have a basis for Networking that supports what Butter Engine already does (i.e Do this last and have it do basic mod stuff)
 
-ButterEngine is under the MIT License, check the [license](https://github.com/higgy999/ButterEngine/blob/main/LICENSE.md) for more details.
+Butter Engine is under the MIT License, check the [license](https://github.com/higgy999/ButterEngine/blob/main/LICENSE.md) for more details.
+The libraries Butter Engine uses fall under their own respective licenses which are found next to them in the lib folder
