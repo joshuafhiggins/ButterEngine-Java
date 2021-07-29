@@ -1,9 +1,7 @@
-package me.toast.engine.rendering.meshes;
+package me.toast.engine.rendering;
 
-import me.toast.engine.rendering.Material;
-import me.toast.engine.rendering.Shader;
-import me.toast.engine.rendering.Vertex;
-import me.toast.engine.rendering.BufferObject;
+import me.toast.engine.scene.Camera;
+import me.toast.engine.scene.Entity;
 
 import static org.lwjgl.opengl.GL33.*;
 
@@ -13,24 +11,49 @@ public class Mesh {
     public BufferObject.IBO IBO;
     public BufferObject[] bufferObjects;
 
+    final Shader shader;
+    final Material material;
+
     //Useful for getting information about the arrays //Can't do anything else
     final Vertex[] vertices;
     final int[] indices;
 
-    public Mesh(Vertex[] vertices, int[] indices) {
+    public Mesh(Vertex[] vertices, int[] indices, Shader shader, Material material) {
         this.vertices = vertices;
         this.indices = indices;
+        this.material = material;
+        this.shader = shader;
+
+        this.bufferObjects = new BufferObject[3];
+
+        Create();
     }
 
-    public void Create() {}
+    //Meant to be overridden
+    public void Create() {
+        VAO = new BufferObject.VAO();
+            VAO.Bind();
+            bufferObjects[0] = new BufferObject.VBO(vertices, 0);
+            bufferObjects[1] = new BufferObject.CBO(vertices, 1);
+            bufferObjects[2] = new BufferObject.TBO(vertices, 2);
+            IBO = new BufferObject.IBO(indices);
+        VAO.Unbind();
+    }
+
+    public void SetUniforms(Entity entity, Camera camera) {
+        shader.setUniform("model", entity.getModelMatrix());
+        shader.setUniform("view", camera.getViewMatrix());
+        shader.setUniform("projection", camera.Projection);
+    }
 
     //Finally got rendering simplified to one universal method! We'll see how long that lasts
-    public void Render(Shader shader, Material material) {
+    public void Render(Entity entity, Camera camera) {
         VAO.Bind();
             enableVertexAttrib();
                 IBO.Bind();
                     material.Bind();
                         shader.Bind();
+                            SetUniforms(entity, camera);
                             DrawElements();
                         shader.Unbind();
                     material.Unbind();
@@ -60,5 +83,8 @@ public class Mesh {
         }
         IBO.Destroy();
         VAO.Destroy();
+
+        shader.Destroy();
+        material.Destroy();
     }
 }
