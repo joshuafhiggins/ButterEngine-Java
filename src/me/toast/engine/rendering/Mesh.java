@@ -42,8 +42,8 @@ public class Mesh {
 
     public void SetUniforms(Entity entity, Camera camera) {
         shader.setUniform("model", entity.getModelMatrix());
-        shader.setUniform("view", camera.getViewMatrix());
-        shader.setUniform("projection", camera.Projection);
+        shader.setUniform("view", camera.getView());
+        shader.setUniform("projection", camera.getProjection());
     }
 
     //Finally got rendering simplified to one universal method! We'll see how long that lasts

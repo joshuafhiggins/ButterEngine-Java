@@ -2,21 +2,25 @@ package me.toast.engine.scene;
 
 import me.toast.engine.rendering.Mesh;
 import org.joml.Matrix4f;
+import org.joml.Quaternionf;
 import org.joml.Vector3f;
 
 public class Entity {
 
     public Mesh Mesh;
-    public Vector3f Position, Rotation, Scale;
+    public Vector3f Position;
+    public Quaternionf Rotation;
+    public Vector3f Scale;
 
-    Matrix4f model;
+    private final Matrix4f model;
 
-    public Entity(Vector3f position, Vector3f rotation, Vector3f scale, Mesh mesh) {
+    public Entity(Vector3f position, Quaternionf rotation, Vector3f scale, Mesh mesh) {
         this.Position = position;
         this.Rotation = rotation;
         this.Scale = scale;
         this.Mesh = mesh;
-        this.model = getModelMatrix();
+
+        this.model = new Matrix4f();
     }
 
     public void Render(Camera camera) {
@@ -28,12 +32,10 @@ public class Entity {
     }
 
     public Matrix4f getModelMatrix() {
-        model = new Matrix4f(); //TODO: Figure out if this a good way of doing this
-        model.identity().translate(Position)
-                .rotateX((float)Math.toRadians(-Rotation.x))
-                .rotateY((float)Math.toRadians(-Rotation.y))
-                .rotateZ((float)Math.toRadians(-Rotation.z))
-                .scale(Scale);
+        model.identity();
+        model.translate(Position);
+        model.rotate(Rotation);
+        model.scale(Scale);
         return model;
     }
 }

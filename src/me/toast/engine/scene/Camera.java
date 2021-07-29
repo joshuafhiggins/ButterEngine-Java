@@ -1,37 +1,37 @@
 package me.toast.engine.scene;
 
 import org.joml.Matrix4f;
+import org.joml.Quaternionf;
 import org.joml.Vector3f;
 
 public class Camera {
 
-    public Vector3f Up = new Vector3f(0, 1, 0);
-    public Vector3f Position, Rotation;
+    public Vector3f Position;
+    public Quaternionf Rotation;
 
-    Matrix4f view;
-    public final Matrix4f Projection;
+    private final Matrix4f view;
+    private final Matrix4f projection;
 
-    public Camera(Vector3f position, Vector3f rotation) {
+    public Camera(Vector3f position, Quaternionf rotation) {
         this.Position = position;
         this.Rotation = rotation;
 
-        view = getViewMatrix();
-        Projection = new Matrix4f().perspective((float) Math.toRadians(45f), 300f/300f, 0.1f, 100f);
+        this.view = new Matrix4f();
+        this.projection = new Matrix4f();
     }
 
-    public Matrix4f getViewMatrix() {
-        view = new Matrix4f();
-        view.identity();
-        // First do the rotation so camera rotates over its position
-        /*
-        view
-                .rotate((float)Math.toRadians(Rotation.x), new Vector3f(1, 0, 0))
-                .rotate((float)Math.toRadians(Rotation.y), new Vector3f(0, 1, 0))
-                .rotate((float)Math.toRadians(Rotation.z), new Vector3f(0, 0, 1));*/
+    public void setProjection(float fovy, float aspect, float zNear, float zFar) {
+        projection.setPerspective(fovy, aspect, zNear, zFar);
+    }
 
-        view.lookAt(Position, Rotation, new Vector3f(0, 1, 0));
-        // Then do the translation
-        view.translate(-Position.x, -Position.y, -Position.z);
+    public Matrix4f getProjection() {
+        return projection;
+    }
+
+    public Matrix4f getView() {
+        view.identity();
+        view.rotate(Rotation.conjugate(new Quaternionf()));
+        view.translate(Position.mul(-1, new Vector3f()));
         return view;
     }
 }

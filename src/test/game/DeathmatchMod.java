@@ -6,6 +6,8 @@ import me.toast.engine.scene.Camera;
 import me.toast.engine.scene.Entity;
 import org.joml.*;
 
+import java.lang.Math;
+
 import static org.lwjgl.glfw.GLFW.*;
 
 public class DeathmatchMod extends Mod {
@@ -30,8 +32,9 @@ public class DeathmatchMod extends Mod {
                 0, 1, 2,
                 0, 3, 2
         }, new Shader("Mesh"), new Material("Smiley"));
-        test = new Entity(new Vector3f(0, 0, 0), new Vector3f(0, 0, 0), new Vector3f(1,1,1), mesh);
-        camera = new Camera(new Vector3f(), new Vector3f());
+        test = new Entity(new Vector3f(0, 0, -10), new Quaternionf(), new Vector3f(1), mesh);
+        camera = new Camera(new Vector3f(), new Quaternionf());
+        camera.setProjection((float) Math.toRadians(45f), 1280f/720f, 0.1f, 1000f);
 
         super.Init();
     }
