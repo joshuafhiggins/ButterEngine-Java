@@ -29,6 +29,11 @@ public class Mod implements IMod {
         }
 
         @Override
+        public void WindowResize(long window, int width, int height) {
+
+        }
+
+        @Override
         public void Update() {
 
         }

@@ -18,6 +18,10 @@ public class Main {
     // The window handle
     private long window;
 
+    public static int WIDTH = 1280;
+    public static int HEIGHT = 720;
+    public static GLCapabilities CAPABILITIES;
+
     public void run() {
         new DeathmatchMod("DMTest", "Deathmatch Mod", "Simple multiplayer deathmatch test in ButterEngine. Use this as an example.", "LitlToast");
 
@@ -48,12 +52,13 @@ public class Main {
         glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE); // the window will be resizable
 
         // Create the window
-        window = glfwCreateWindow(1280, 720, Mod.LOADED_MOD.NAME, NULL, NULL);
+        window = glfwCreateWindow(WIDTH, HEIGHT, Mod.LOADED_MOD.NAME, NULL, NULL);
         if ( window == NULL )
             throw new RuntimeException("Failed to create the GLFW window");
 
         // Setup a key callback. It will be called every time a key is pressed, repeated or released.
         glfwSetKeyCallback(window, (window, key, scancode, action, mods) -> Mod.LOADED_MOD.Input(window, key, scancode, action, mods));
+        glfwSetWindowSizeCallback(window, (window, width, height) -> Mod.LOADED_MOD.WindowResize(window, width, height));
 
         //This logic handles centering the window in the middle of the main monitor
         try ( MemoryStack stack = stackPush() ) {
@@ -82,7 +87,7 @@ public class Main {
         // LWJGL detects the context that is current in the current thread,
         // creates the GLCapabilities instance and makes the OpenGL
         // bindings available for use.
-        GL.createCapabilities();
+        CAPABILITIES = GL.createCapabilities();
 
         Mod.LOADED_MOD.Init();
 
