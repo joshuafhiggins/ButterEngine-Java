@@ -25,16 +25,8 @@ public class DeathmatchMod extends Mod {
 
     @Override
     public void Init() {
-        mesh = new Mesh(new Vertex[] {
-                new Vertex(new Vector3f(-0.5f,  0.5f, 0.0f), new Vector3f(1.0f, 0.0f, 0.0f), new Vector2f(0.0f, 0.0f)),
-                new Vertex(new Vector3f(-0.5f, -0.5f, 0.0f), new Vector3f(0.0f, 1.0f, 0.0f), new Vector2f(0.0f, 1.0f)),
-                new Vertex(new Vector3f( 0.5f, -0.5f, 0.0f), new Vector3f(0.0f, 0.0f, 1.0f), new Vector2f(1.0f, 1.0f)),
-                new Vertex(new Vector3f( 0.5f,  0.5f, 0.0f), new Vector3f(1.0f, 1.0f, 0.0f), new Vector2f(1.0f, 0.0f))
-        }, new int[] {
-                0, 1, 2,
-                0, 3, 2
-        }, new Shader("Mesh"), new Material("Smiley"));
-        test = new Entity(new Vector3f(0, 0, -10), new Quaternionf(), new Vector3f(1), mesh);
+        mesh = Model.LoadScene("dragon", ".obj", new Shader("mesh"))[0];
+        test = new Entity(new Vector3f(0, -5, -15), new Quaternionf(), new Vector3f(1), mesh);
         camera = new Camera(new Vector3f(), new Quaternionf());
         camera.setProjection((float) Math.toRadians(45f), (float) Main.WIDTH / (float) Main.HEIGHT, 0.1f, 1000f);
 
