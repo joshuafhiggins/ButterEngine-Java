@@ -1,6 +1,8 @@
 package me.toast.engine.scene;
 
+import me.toast.engine.Mod;
 import me.toast.engine.window.Input;
+import org.joml.Math;
 import org.joml.Matrix4f;
 import org.joml.Quaternionf;
 import org.joml.Vector3f;
@@ -16,8 +18,13 @@ public class Camera {
     private final Matrix4f view;
     private final Matrix4f projection;
 
-    private float moveSpeed = 0.05f, mouseSensitivity = 0.005f;
-    private double oldMouseX = 0, oldMouseY = 0, newMouseX, newMouseY;
+    float mainSpeed = 100.0f; //regular speed
+    float shiftAdd = 250.0f; //multiplied by how long shift is held.  Basically running
+    float maxShift = 1000.0f; //Maximum speed when holdin gshift
+    float camSens = 0.25f; //How sensitive it with mouse
+    private Vector3f lastMouse = new Vector3f(255, 255, 255); //kind of in the middle of the screen, rather than at the top (play)
+    private float totalRun= 1.0f;
+    float mouseSensitivity = 0.025f;
 
     public Camera(Vector3f position, Vector3f rotation) {
         this.Position = position;
@@ -29,27 +36,59 @@ public class Camera {
 
     public void Update(Input input) {
         if (!input.GetMouseState()) {
-            newMouseX = input.mouseX;
-            newMouseY = input.mouseY;
+            lastMouse = new Vector3f((float) input.mouseX * mouseSensitivity, (float) input.mouseY * mouseSensitivity, 0).sub(lastMouse, new Vector3f());
+            lastMouse = new Vector3f(-lastMouse.y * camSens, lastMouse.x * camSens, 0);
+            lastMouse = new Vector3f(Rotation.x + lastMouse.x, Rotation.y + lastMouse.y, 0);
+            Rotation = lastMouse;
+            lastMouse = new Vector3f((float) input.mouseX * mouseSensitivity, (float) input.mouseY * mouseSensitivity, 0);
         }
+        //Mouse  camera angle done.  
 
-        float x = (float) Math.sin(Math.toRadians(Rotation.y) * moveSpeed);
-        float z = (float) Math.cos(Math.toRadians(Rotation.y) * moveSpeed);
+        //Keyboard commands
+        float f = 0.0f;
+        Vector3f p = GetBaseInput(input);
+        if (p.lengthSquared() > 0){ // only move while a direction key is pressed
+            if (input.isKeyDown(GLFW_KEY_LEFT_SHIFT)){
+                totalRun += Mod.LOADED_MOD.WINDOW.getDeltaTime();
+                p = p.mul(totalRun, new Vector3f()).mul(shiftAdd, new Vector3f());
+                p.x = Math.clamp(-maxShift, maxShift, p.x);
+                p.y = Math.clamp(-maxShift, maxShift, p.y);
+                p.z = Math.clamp(-maxShift, maxShift, p.z);
+            } else {
+                totalRun = Math.clamp(1000f, 1f, totalRun * 0.5f);
+                p = p.mul(mainSpeed, new Vector3f());
+            }
 
-        if (input.isKeyDown(GLFW_KEY_A)) Position.add(new Vector3f(-z, 0, x));
-        if (input.isKeyDown(GLFW_KEY_D)) Position.add(new Vector3f(z, 0, -x));
-        if (input.isKeyDown(GLFW_KEY_W)) Position.add(new Vector3f(-x, 0, -z));
-        if (input.isKeyDown(GLFW_KEY_S)) Position.add(new Vector3f(x, 0, z));
-        if (input.isKeyDown(GLFW_KEY_SPACE)) Position.add(new Vector3f(0, moveSpeed, 0));
-        if (input.isKeyDown(GLFW_KEY_LEFT_SHIFT)) Position.add(new Vector3f(0, -moveSpeed, 0));
+            p = p.mul(Mod.LOADED_MOD.WINDOW.getDeltaTime(), new Vector3f());
+            Vector3f newPosition = Position;
+            if (input.isKeyDown(GLFW_KEY_SPACE)){ //If player wants to move on X and Z axis only
+                //transform.Translate(p);
+                Position = p;
+                newPosition.x = Position.x;
+                newPosition.z = Position.z;
+                Position = newPosition;
+            } else {
+                //transform.Translate(p);
+                Position = p;
+            }
+        }
+    }
 
-        float dx = (float) (newMouseX - oldMouseX);
-        float dy = (float) (newMouseY - oldMouseY);
-
-        Rotation.add(new Vector3f(-dy * mouseSensitivity, -dx * mouseSensitivity, 0));
-
-        oldMouseX = newMouseX;
-        oldMouseY = newMouseY;
+    private Vector3f GetBaseInput(Input input) { //returns the basic values, if it's 0 than it's not active.
+        Vector3f p_Velocity = new Vector3f();
+        if (input.isKeyDown(GLFW_KEY_W)){
+            p_Velocity.add(new Vector3f(0, 0 , 1));
+        }
+        if (input.isKeyDown(GLFW_KEY_S)){
+            p_Velocity.add(new Vector3f(0, 0 , -1));
+        }
+        if (input.isKeyDown(GLFW_KEY_A)){
+            p_Velocity.add(new Vector3f(-1, 0 , 0));
+        }
+        if (input.isKeyDown(GLFW_KEY_D)){
+            p_Velocity.add(new Vector3f(1, 0 , 0));
+        }
+        return p_Velocity;
     }
 
     public void setProjection(float fovy, float aspect, float zNear, float zFar) {

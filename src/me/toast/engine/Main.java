@@ -1,7 +1,5 @@
 package me.toast.engine;
 
-import me.toast.engine.window.Window;
-import org.lwjgl.opengl.GL;
 import test.game.DeathmatchMod;
 
 import static org.lwjgl.glfw.GLFW.*;
@@ -27,7 +25,7 @@ public class Main {
 
             Mod.LOADED_MOD.Render();
 
-            Mod.LOADED_MOD.WINDOW.PushFrameAndPullEvents();
+            Mod.LOADED_MOD.WINDOW.Update();
 
             Mod.LOADED_MOD.Update();
         }

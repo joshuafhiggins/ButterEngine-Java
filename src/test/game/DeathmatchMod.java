@@ -39,8 +39,11 @@ public class DeathmatchMod extends Mod {
         public void Update() {
             if (WINDOW.InputEvents.isKeyDown(GLFW_KEY_ESCAPE))
                 glfwSetWindowShouldClose(WINDOW.ID, true);
+
             if (WINDOW.InputEvents.isButtonDown(GLFW_MOUSE_BUTTON_LEFT))
                 WINDOW.InputEvents.SetMouseState(true);
+            if (WINDOW.InputEvents.isButtonDown(GLFW_MOUSE_BUTTON_RIGHT))
+                WINDOW.InputEvents.SetMouseState(false);
 
             camera.Update(WINDOW.InputEvents);
 

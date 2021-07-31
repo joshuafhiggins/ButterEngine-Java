@@ -18,6 +18,8 @@ public class Window {
     public int Width, Height;
     public Input InputEvents;
     public GLCapabilities Capabilities;
+
+    public long lastTime;
     
     public Window(int width, int height) {
         this.Width = width; this.Height = height;
@@ -59,6 +61,7 @@ public class Window {
         // Enable v-sync
         glfwSwapInterval(1);
 
+        lastTime = System.nanoTime();
     }
     
     private void SetCallbacks() {
@@ -70,8 +73,15 @@ public class Window {
 
         glfwSetWindowSizeCallback(ID, InputEvents.WindowResizeCallback);
     }
-    
-    public void PushFrameAndPullEvents() {
+
+    public float getDeltaTime() {
+        long currentTime = System.nanoTime();
+        int delta = (int)(currentTime - lastTime);
+        lastTime = System.nanoTime();
+        return delta;
+    }
+
+    public void Update() {
         glfwSwapBuffers(ID); // swap the color buffers
         glfwPollEvents(); // Poll for window events. The key callback above will only be invoked during this call.
     }
