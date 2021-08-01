@@ -20,6 +20,7 @@ public class Window {
     public GLCapabilities Capabilities;
 
     public long lastTime;
+    public int Delta;
     
     public Window(int width, int height) {
         this.Width = width; this.Height = height;
@@ -74,7 +75,7 @@ public class Window {
         glfwSetWindowSizeCallback(ID, InputEvents.WindowResizeCallback);
     }
 
-    public float getDeltaTime() {
+    private int getDeltaTime() {
         long currentTime = System.nanoTime();
         int delta = (int)(currentTime - lastTime);
         lastTime = System.nanoTime();
@@ -84,6 +85,7 @@ public class Window {
     public void Update() {
         glfwSwapBuffers(ID); // swap the color buffers
         glfwPollEvents(); // Poll for window events. The key callback above will only be invoked during this call.
+        Delta = getDeltaTime();
     }
     
     public void Destroy() {

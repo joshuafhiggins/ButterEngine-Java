@@ -18,9 +18,9 @@ public class Camera {
     private final Matrix4f view;
     private final Matrix4f projection;
 
-    float mainSpeed = 100.0f; //regular speed
-    float shiftAdd = 250.0f; //multiplied by how long shift is held.  Basically running
-    float maxShift = 1000.0f; //Maximum speed when holdin gshift
+    float mainSpeed = 1f; //regular speed
+    float shiftAdd = 5f; //multiplied by how long shift is held.  Basically running
+    float maxShift = 10f; //Maximum speed when holdin gshift
     float camSens = 0.25f; //How sensitive it with mouse
     private Vector3f lastMouse = new Vector3f(255, 255, 255); //kind of in the middle of the screen, rather than at the top (play)
     private float totalRun= 1.0f;
@@ -36,11 +36,11 @@ public class Camera {
 
     public void Update(Input input) {
         if (!input.GetMouseState()) {
-            lastMouse = new Vector3f((float) input.mouseX * mouseSensitivity, (float) input.mouseY * mouseSensitivity, 0).sub(lastMouse, new Vector3f());
-            lastMouse = new Vector3f(-lastMouse.y * camSens, lastMouse.x * camSens, 0);
+            lastMouse = new Vector3f((float) input.mouseY * mouseSensitivity, (float) input.mouseX * mouseSensitivity, 0).sub(lastMouse, new Vector3f());
+            lastMouse = new Vector3f(lastMouse.x * camSens, lastMouse.y * camSens, 0);
             lastMouse = new Vector3f(Rotation.x + lastMouse.x, Rotation.y + lastMouse.y, 0);
             Rotation = lastMouse;
-            lastMouse = new Vector3f((float) input.mouseX * mouseSensitivity, (float) input.mouseY * mouseSensitivity, 0);
+            lastMouse = new Vector3f((float) input.mouseY * mouseSensitivity, (float) input.mouseX * mouseSensitivity, 0);
         }
         //Mouse  camera angle done.  
 
@@ -49,7 +49,7 @@ public class Camera {
         Vector3f p = GetBaseInput(input);
         if (p.lengthSquared() > 0){ // only move while a direction key is pressed
             if (input.isKeyDown(GLFW_KEY_LEFT_SHIFT)){
-                totalRun += Mod.LOADED_MOD.WINDOW.getDeltaTime();
+                totalRun += Mod.LOADED_MOD.WINDOW.Delta;
                 p = p.mul(totalRun, new Vector3f()).mul(shiftAdd, new Vector3f());
                 p.x = Math.clamp(-maxShift, maxShift, p.x);
                 p.y = Math.clamp(-maxShift, maxShift, p.y);
@@ -59,7 +59,7 @@ public class Camera {
                 p = p.mul(mainSpeed, new Vector3f());
             }
 
-            p = p.mul(Mod.LOADED_MOD.WINDOW.getDeltaTime(), new Vector3f());
+            p = p.mul(Mod.LOADED_MOD.WINDOW.Delta, new Vector3f());
             Vector3f newPosition = Position;
             if (input.isKeyDown(GLFW_KEY_SPACE)){ //If player wants to move on X and Z axis only
                 //transform.Translate(p);
@@ -72,6 +72,9 @@ public class Camera {
                 Position = p;
             }
         }
+
+        System.out.println("Position: " + Position.x + " " + Position.y + " " + Position.z);
+        System.out.println("Rotation: " + Rotation.x + " " + Rotation.y + " " + Rotation.z);
     }
 
     private Vector3f GetBaseInput(Input input) { //returns the basic values, if it's 0 than it's not active.
