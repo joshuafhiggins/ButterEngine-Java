@@ -5,28 +5,39 @@ Butter Engine is a game engine made in LWJGL and uses it's subset libraries for 
 ## What's left to do:
   
 ### Rendering
+   - [X] Rasterizing Shader Pipeline
+   - [X] Basic Mesh System
+   - [X] Model Loading (Not fully supported though)
    - [ ] PBR/Multi-Texture Suppport
-   - [ ] Model Loading
-   - [ ] Lighting
-   - [ ] Ray Traycing?
+   - [ ] Dynamic Lighting
+   - [ ] Baked Lighting
+   - [ ] Ray Traycing
    
 ### Entity/Scene Management
-   - [ ] Look into popular ECS implimentations
+   - [ ] Implement Ashley
+   - [ ] Implement JBullet
+   - [ ] Add Noclip Camera
+   - [ ] Add Source Engine Movement
   
 ### Audio
    - [ ] Basic Spacial Audio
    - [ ] Audio Management
-   - [ ] Look into Valve Spatial Audio
  
 ### Proper Modding Support
    - [ ] Tools
+   - [ ] Custom Entity Creation
    - [ ] Documentation
    - [ ] Mod Loading/Unloading
    - [ ] Event Systems
   
-### Networking (Maybe SteamWorks)
-   - [ ] If not SteamWorks, KyroNet
+### Networking
+   - [ ] Implement Kyronet
    - [ ] Have a basis for Networking that supports what Butter Engine already does (i.e Do this last and have it do basic mod stuff)
+
+### Adanced Features (After first stable release, i.e. complex futuristic features)
+   - [ ] Raytracing
+   - [ ] Steam Audio
+   - [ ] SteamWorks (Networking)
 
 Butter Engine is under the MIT License, check the [license](https://github.com/higgy999/ButterEngine/blob/main/LICENSE.md) for more details.
 The libraries Butter Engine uses fall under their own respective licenses which are found next to them in the lib folder
