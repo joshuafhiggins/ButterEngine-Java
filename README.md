@@ -13,7 +13,7 @@ Butter Engine is a game engine made in LWJGL and uses it's subset libraries for 
    - [ ] Baked Lighting
    - [ ] Ray Traycing
    
-### Entity/Scene Management
+### The World, ECS, & Cameras
    - [ ] Implement Ashley
    - [ ] Implement JBullet
    - [ ] Add Noclip Camera
@@ -21,7 +21,7 @@ Butter Engine is a game engine made in LWJGL and uses it's subset libraries for 
   
 ### Audio
    - [ ] Basic Spacial Audio
-   - [ ] Audio Management
+   - [ ] Audio Management (i.e. controlling volume of audio)
  
 ### Proper Modding Support
    - [ ] Tools
