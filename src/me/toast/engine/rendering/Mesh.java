@@ -72,15 +72,13 @@ public class Mesh {
     }
 
     public void disableVertexAttrib() {
-        for (int i = 0; i < bufferObjects.length; i++) {
+        for (int i = 0; i < bufferObjects.length; i++)
             glDisableVertexAttribArray(i);
-        }
     }
 
     public void Destroy() {
-        for (BufferObject object : bufferObjects) {
+        for (BufferObject object : bufferObjects)
             object.Destroy();
-        }
         IBO.Destroy();
         VAO.Destroy();
 
