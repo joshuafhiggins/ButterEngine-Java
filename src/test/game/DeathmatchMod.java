@@ -2,9 +2,8 @@ package test.game;
 
 import me.toast.engine.Mod;
 import me.toast.engine.rendering.*;
-import me.toast.engine.scene.Camera;
-import me.toast.engine.scene.Entity;
-import me.toast.engine.window.Window;
+import me.toast.engine.world.scene.Camera;
+import me.toast.engine.world.BaseEntity;
 import org.joml.*;
 
 import java.lang.Math;
@@ -14,7 +13,7 @@ import static org.lwjgl.glfw.GLFW.*;
 public class DeathmatchMod extends Mod {
 
     public Mesh mesh;
-    public Entity test;
+    public BaseEntity test;
 
     public DeathmatchMod(int width, int height) {
         super("DMTest",
@@ -27,7 +26,7 @@ public class DeathmatchMod extends Mod {
     @Override
     public void Init() {
         mesh = Model.LoadScene("dragon", ".obj", new Shader("mesh"))[0];
-        test = new Entity(new Vector3f(0, -5, -15), new Quaternionf(), new Vector3f(1), mesh);
+        test = new BaseEntity(new Vector3f(0, -5, -15), new Quaternionf(), new Vector3f(1), mesh);
         camera = new Camera(new Vector3f(), new Quaternionf());
         camera.setProjection((float) Math.toRadians(45f), (float) WINDOW.Width / (float) WINDOW.Height, 0.1f, 1000f);
 
@@ -44,7 +43,7 @@ public class DeathmatchMod extends Mod {
                 WINDOW.InputEvents.SetMouseState(true);
             if (WINDOW.InputEvents.isButtonDown(GLFW_MOUSE_BUTTON_RIGHT))
                 WINDOW.InputEvents.SetMouseState(false);
-            
+
             super.Update();
         }
 

@@ -1,7 +1,7 @@
 package me.toast.engine.rendering;
 
-import me.toast.engine.scene.Camera;
-import me.toast.engine.scene.Entity;
+import me.toast.engine.world.scene.Camera;
+import me.toast.engine.world.BaseEntity;
 
 import static org.lwjgl.opengl.GL33.*;
 
@@ -40,20 +40,20 @@ public class Mesh {
         VAO.Unbind();
     }
 
-    public void SetUniforms(Entity entity, Camera camera) {
-        shader.setUniform("model", entity.getModelMatrix());
+    public void SetUniforms(BaseEntity baseEntity, Camera camera) {
+        shader.setUniform("model", baseEntity.getModelMatrix());
         shader.setUniform("view", camera.getView());
         shader.setUniform("projection", camera.getProjection());
     }
 
     //Finally got rendering simplified to one universal method! We'll see how long that lasts
-    public void Render(Entity entity, Camera camera) {
+    public void Render(BaseEntity baseEntity, Camera camera) {
         VAO.Bind();
             enableVertexAttrib();
                 IBO.Bind();
                     material.Bind();
                         shader.Bind();
-                            SetUniforms(entity, camera);
+                            SetUniforms(baseEntity, camera);
                             DrawElements();
                         shader.Unbind();
                     material.Unbind();

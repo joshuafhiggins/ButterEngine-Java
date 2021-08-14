@@ -1,6 +1,7 @@
 package me.toast.engine;
 
-import me.toast.engine.scene.Camera;
+import com.badlogic.ashley.core.Engine;
+import me.toast.engine.world.scene.Camera;
 import me.toast.engine.window.Window;
 import org.lwjgl.opengl.GL;
 
@@ -14,8 +15,11 @@ public class Mod {
     //We'll use this info later in the mod loading
     public String ID, NAME, DESCRIPTION, AUTHOR;
 
+    //TODO: Naming conventions for mods
     public Window WINDOW;
     public Camera camera;
+
+    public Engine ECS;
 
     public Mod(String id, String name, String description, String author, int width, int height) {
         LOADED_MOD = this;
@@ -30,6 +34,8 @@ public class Mod {
         glfwShowWindow(this.WINDOW.ID);
         //Creates our OpenGL Context; TLDR: Very important
         this.WINDOW.Capabilities = GL.createCapabilities();
+
+        ECS = new Engine();
     }
 
     //TODO: Make decision on whether super statements should be declared for these
