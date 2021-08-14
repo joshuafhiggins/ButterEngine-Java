@@ -28,7 +28,7 @@ public class DeathmatchMod extends Mod {
     public void Init() {
         mesh = Model.LoadScene("dragon", ".obj", new Shader("mesh"))[0];
         test = new Entity(new Vector3f(0, -5, -15), new Quaternionf(), new Vector3f(1), mesh);
-        camera = new Camera(new Vector3f(), new Vector3f());
+        camera = new Camera(new Vector3f(), new Quaternionf());
         camera.setProjection((float) Math.toRadians(45f), (float) WINDOW.Width / (float) WINDOW.Height, 0.1f, 1000f);
 
         super.Init();
@@ -44,9 +44,7 @@ public class DeathmatchMod extends Mod {
                 WINDOW.InputEvents.SetMouseState(true);
             if (WINDOW.InputEvents.isButtonDown(GLFW_MOUSE_BUTTON_RIGHT))
                 WINDOW.InputEvents.SetMouseState(false);
-
-            camera.Update(WINDOW.InputEvents);
-
+            
             super.Update();
         }
 
