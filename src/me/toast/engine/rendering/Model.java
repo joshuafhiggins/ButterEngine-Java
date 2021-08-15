@@ -7,12 +7,13 @@ import static org.lwjgl.assimp.Assimp.*;
 
 public class Model {
 
-    //Name needs to have file extension
-    public static Mesh[] LoadScene(String name, String type, Shader shader) {
-        AIScene scene = aiImportFile("resources/assets/models/" + name + type,
+    //TODO: Make a Models class for static referencing
+    //NOTE: name needs to have the filetype as well
+    public static Mesh[] LoadScene(String name, Shader shader, Material material) {
+        AIScene scene = aiImportFile("resources/assets/models/" + name,
                 aiProcess_JoinIdenticalVertices | aiProcess_Triangulate | aiProcess_FixInfacingNormals);
 
-        if (scene == null) System.err.println("Couldn't load model at: " + "assets/models/" + name + type);
+        if (scene == null) System.err.println("Couldn't load model at: " + "assets/models/" + name);
         assert scene != null;
 
         AIMesh[] meshes = new AIMesh[scene.mNumMeshes()];
@@ -57,7 +58,7 @@ public class Model {
                 indicesList[k * 3 + 2] = face.mIndices().get(2);
             }
 
-            internal[i] = new Mesh(vertexList, indicesList, shader, new Material(name));
+            internal[i] = new Mesh(vertexList, indicesList, shader, material);
         }
 
         return internal;

@@ -23,13 +23,15 @@ public class Main {
         while ( !glfwWindowShouldClose(Mod.LOADED_MOD.WINDOW.ID) ) {
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clear the framebuffer
 
+            Mod.LOADED_MOD.Update();
+
             Mod.LOADED_MOD.Render();
 
             Mod.LOADED_MOD.WINDOW.Update();
-
-            Mod.LOADED_MOD.Update();
         }
 
+        Mod.LOADED_MOD.ECS.removeAllEntities();
+        Mod.LOADED_MOD.ECS.removeAllSystems();
         Mod.LOADED_MOD.Shutdown();
     }
 

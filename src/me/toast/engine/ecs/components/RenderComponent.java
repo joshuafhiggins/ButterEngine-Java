@@ -1,4 +1,4 @@
-package me.toast.engine.world.components;
+package me.toast.engine.ecs.components;
 
 import com.badlogic.ashley.core.Component;
 import me.toast.engine.rendering.Mesh;
