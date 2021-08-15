@@ -27,11 +27,11 @@ public class DeathmatchMod extends Mod {
     @Override
     public void Init() {
         mesh = Model.LoadScene("dragon.obj", Shaders.INSTANCE.BaseShader, Materials.INSTANCE.Dragon)[0];
-        ECS.addSystem(new RenderSystem());
+        Ashley.addSystem(new RenderSystem());
         test = new RenderEntity(new Vector3f(0, -5, -15), new Quaternionf(), new Vector3f(1), mesh);
-        ECS.addEntity(test);
-        camera = new Camera(new Vector3f(), new Quaternionf());
-        camera.setProjection((float) Math.toRadians(45f), (float) WINDOW.Width / (float) WINDOW.Height, 0.1f, 1000f);
+        Ashley.addEntity(test);
+        Camera = new Camera(new Vector3f(), new Quaternionf());
+        Camera.setProjection((float) Math.toRadians(45f), (float) Window.Width / (float) Window.Height, 0.1f, 1000f);
 
         super.Init();
     }
@@ -39,15 +39,15 @@ public class DeathmatchMod extends Mod {
         //TODO: Make a proper event system
         @Override
         public void Update() {
-            if (WINDOW.InputEvents.isKeyDown(GLFW_KEY_ESCAPE))
-                glfwSetWindowShouldClose(WINDOW.ID, true);
+            if (Window.InputEvents.isKeyDown(GLFW_KEY_ESCAPE))
+                glfwSetWindowShouldClose(Window.ID, true);
 
-            if (WINDOW.InputEvents.isButtonDown(GLFW_MOUSE_BUTTON_LEFT))
-                WINDOW.InputEvents.SetMouseState(true);
-            if (WINDOW.InputEvents.isButtonDown(GLFW_MOUSE_BUTTON_RIGHT))
-                WINDOW.InputEvents.SetMouseState(false);
+            if (Window.InputEvents.isButtonDown(GLFW_MOUSE_BUTTON_LEFT))
+                Window.InputEvents.SetMouseState(true);
+            if (Window.InputEvents.isButtonDown(GLFW_MOUSE_BUTTON_RIGHT))
+                Window.InputEvents.SetMouseState(false);
 
-            Mod.LOADED_MOD.ECS.update(Mod.LOADED_MOD.WINDOW.Delta);
+            Mod.LOADED_MOD.Ashley.update(Mod.LOADED_MOD.Window.Delta);
 
             super.Update();
         }

@@ -49,11 +49,11 @@ public class Input {
         WindowResizeCallback = new GLFWWindowSizeCallback() {
             @Override
             public void invoke(long window, int width, int height) {
-                if(Mod.LOADED_MOD.WINDOW.Capabilities != null) {
-                    Mod.LOADED_MOD.WINDOW.Width = width;
-                    Mod.LOADED_MOD.WINDOW.Height = height;
+                if(Mod.LOADED_MOD.Window.Capabilities != null) {
+                    Mod.LOADED_MOD.Window.Width = width;
+                    Mod.LOADED_MOD.Window.Height = height;
                     glViewport(0, 0, width, height);
-                    Mod.LOADED_MOD.camera
+                    Mod.LOADED_MOD.Camera
                             .setProjection((float) Math.toRadians(45f), (float) width/ (float) height, 0.1f, 1000f);
                 }
             }
@@ -69,10 +69,10 @@ public class Input {
     }
 
     public void SetMouseState(boolean lock) {
-        GLFW.glfwSetInputMode(Mod.LOADED_MOD.WINDOW.ID, GLFW.GLFW_CURSOR, lock ? GLFW.GLFW_CURSOR_DISABLED : GLFW.GLFW_CURSOR_NORMAL);
+        GLFW.glfwSetInputMode(Mod.LOADED_MOD.Window.ID, GLFW.GLFW_CURSOR, lock ? GLFW.GLFW_CURSOR_DISABLED : GLFW.GLFW_CURSOR_NORMAL);
     }
 
     public boolean GetMouseState() {
-        return GLFW.glfwGetInputMode(Mod.LOADED_MOD.WINDOW.ID, GLFW.GLFW_CURSOR) != GLFW.GLFW_CURSOR_DISABLED;
+        return GLFW.glfwGetInputMode(Mod.LOADED_MOD.Window.ID, GLFW.GLFW_CURSOR) != GLFW.GLFW_CURSOR_DISABLED;
     }
 }

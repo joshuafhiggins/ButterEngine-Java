@@ -16,10 +16,10 @@ public class Mod {
     public String ID, NAME, DESCRIPTION, AUTHOR;
 
     //TODO: Naming conventions for mods
-    public Window WINDOW;
-    public Camera camera;
+    public Window Window;
+    public Camera Camera;
 
-    public Engine ECS;
+    public Engine Ashley;
 
     public Mod(String id, String name, String description, String author, int width, int height) {
         LOADED_MOD = this;
@@ -29,13 +29,13 @@ public class Mod {
         this.DESCRIPTION = description;
         this.AUTHOR = author;
 
-        this.WINDOW = new Window(width, height);
+        this.Window = new Window(width, height);
         // Make the window visible
-        glfwShowWindow(this.WINDOW.ID);
+        glfwShowWindow(this.Window.ID);
         //Creates our OpenGL Context; TLDR: Very important
-        this.WINDOW.Capabilities = GL.createCapabilities();
+        this.Window.Capabilities = GL.createCapabilities();
 
-        ECS = new Engine();
+        Ashley = new Engine();
     }
 
     //TODO: Make decision on whether super statements should be declared for these

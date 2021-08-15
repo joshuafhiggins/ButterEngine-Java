@@ -25,6 +25,6 @@ public class RenderSystem extends EntitySystem {
     @Override
     public void update(float deltaTime) {
         for (Entity entity : entities)
-            rm.get(entity).mesh.Render(tm.get(entity), Mod.LOADED_MOD.camera);
+            rm.get(entity).mesh.Render(tm.get(entity), Mod.LOADED_MOD.Camera);
     }
 }
