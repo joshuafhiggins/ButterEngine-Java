@@ -1,7 +1,7 @@
 package me.toast.engine;
 
 import com.badlogic.ashley.core.Engine;
-import me.toast.engine.world.scene.Camera;
+import me.toast.engine.scene.Camera;
 import me.toast.engine.window.Window;
 import org.lwjgl.opengl.GL;
 

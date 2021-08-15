@@ -2,7 +2,7 @@ package test.game;
 
 import me.toast.engine.Mod;
 import me.toast.engine.rendering.*;
-import me.toast.engine.world.scene.Camera;
+import me.toast.engine.scene.Camera;
 import me.toast.engine.ecs.entities.RenderEntity;
 import me.toast.engine.ecs.systems.RenderSystem;
 import org.joml.*;

@@ -1,7 +1,7 @@
 package me.toast.engine.rendering;
 
 import me.toast.engine.ecs.components.TransformComponent;
-import me.toast.engine.world.scene.Camera;
+import me.toast.engine.scene.Camera;
 
 import static org.lwjgl.opengl.GL33.*;
 

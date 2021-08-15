@@ -1,4 +1,4 @@
-package me.toast.engine.world.scene;
+package me.toast.engine.scene;
 
 import org.joml.*;
 

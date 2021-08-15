@@ -1,5 +1,7 @@
 package me.toast.engine;
 
+import me.toast.engine.rendering.Materials;
+import me.toast.engine.rendering.Shaders;
 import test.game.DeathmatchMod;
 
 import static org.lwjgl.glfw.GLFW.*;
@@ -32,7 +34,8 @@ public class Main {
 
         Mod.LOADED_MOD.Ashley.removeAllEntities();
         Mod.LOADED_MOD.Ashley.removeAllSystems();
-
+        Shaders.INSTANCE.Destroy();
+        Materials.INSTANCE.Destroy();
         Mod.LOADED_MOD.Shutdown();
     }
 
