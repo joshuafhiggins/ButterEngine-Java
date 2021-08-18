@@ -1,6 +1,7 @@
 package me.toast.engine;
 
 import com.badlogic.ashley.core.Engine;
+import me.toast.engine.physics.Physics;
 import me.toast.engine.scene.Camera;
 import me.toast.engine.window.Window;
 import org.lwjgl.opengl.GL;
@@ -20,6 +21,7 @@ public class Mod {
     public Camera Camera;
 
     public Engine Ashley;
+    public Physics JBullet;
 
     public Mod(String id, String name, String description, String author, int width, int height) {
         LOADED_MOD = this;
@@ -32,12 +34,14 @@ public class Mod {
         this.Window = new Window(width, height);
         // Make the window visible
         glfwShowWindow(this.Window.ID);
-        //Creates our OpenGL Context; TLDR: Very important
+        //Creates our OpenGL Context
         this.Window.Capabilities = GL.createCapabilities();
 
         Ashley = new Engine();
+        JBullet = new Physics();
     }
 
+    //TODO: Make a proper event system
     //TODO: Make decision on whether super statements should be declared for these
     //The lifecycle of the engine mod
     public void Init() {} //Initialize texture, models, assets, etc.

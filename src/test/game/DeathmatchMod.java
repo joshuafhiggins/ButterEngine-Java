@@ -36,7 +36,6 @@ public class DeathmatchMod extends Mod {
         super.Init();
     }
 
-        //TODO: Make a proper event system
         @Override
         public void Update() {
             if (Window.InputEvents.isKeyDown(GLFW_KEY_ESCAPE))
@@ -47,6 +46,7 @@ public class DeathmatchMod extends Mod {
             if (Window.InputEvents.isButtonDown(GLFW_MOUSE_BUTTON_RIGHT))
                 Window.InputEvents.SetMouseState(false);
 
+            Mod.LOADED_MOD.JBullet.Update();
             Mod.LOADED_MOD.Ashley.update(Mod.LOADED_MOD.Window.Delta);
 
             super.Update();

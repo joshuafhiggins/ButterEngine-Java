@@ -64,7 +64,7 @@ public class Shader {
 
     public int getUniformLocation(String name) { return glGetUniformLocation(ID, name); }
 
-    //TODO: Make all types of uniforms setable PS. just try to find some code somewhere
+    //TODO: Make all types of uniforms set-able
     public void setUniform(String name, float value) { glUniform1f(getUniformLocation(name), value); }
     public void setUniform(String name, int value) { glUniform1i(getUniformLocation(name), value); }
     public void setUniform(String name, boolean value) { glUniform1i(getUniformLocation(name), value ? 1 : 0); }

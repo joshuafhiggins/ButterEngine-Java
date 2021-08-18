@@ -9,8 +9,6 @@ import org.joml.Vector3f;
 
 public class RenderEntity extends Entity {
 
-    //TODO Research ImmutableArray
-
     public TransformComponent transformComponent;
     public RenderComponent renderComponent;
 

@@ -6,11 +6,13 @@ import com.bulletphysics.collision.shapes.*;
 import com.bulletphysics.dynamics.*;
 import com.bulletphysics.dynamics.constraintsolver.*;
 import com.bulletphysics.linearmath.*;
+import com.bulletphysics.util.*;
 import org.joml.*;
+
+import me.toast.engine.ecs.components.TransformComponent;
 
 import static me.toast.engine.utils.MathConv.*;
 
-//TODO: Look into changing math libraries or reworking JBullet to use JOML
 public class Physics {
 
     //Normally this would be public, but because of the math shenanigans I'm using JOML as input and this class handles it
@@ -22,18 +24,11 @@ public class Physics {
         CollisionDispatcher dispatcher = new CollisionDispatcher(collisionConfiguration);
         ConstraintSolver solver = new SequentialImpulseConstraintSolver();
         world = new DiscreteDynamicsWorld(dispatcher, broadphase, solver, collisionConfiguration);
-        world.setGravity(ToVecmath(new Vector3f(0, -10 /* m/s2 */, 0), new javax.vecmath.Vector3f()));
+        SetGravity(new Vector3f(0, -10 /* m/s2 */, 0));
+    }
 
-        CollisionShape groundShape = new StaticPlaneShape(ToVecmath(new Vector3f(0, 1, 0), new javax.vecmath.Vector3f()), 0.25f /* m */);
-        Matrix4f groundMat = new Matrix4f().translate(new Vector3f()).rotate(new Quaternionf(0, 0, 1, 0)).scale(1);
-        MotionState groundMotionState = new DefaultMotionState(new Transform(ToVecmath(groundMat, new javax.vecmath.Matrix4f())));
-        RigidBodyConstructionInfo groundBodyConstructionInfo = new RigidBodyConstructionInfo(
-                0, groundMotionState, groundShape,
-                ToVecmath(new Vector3f(0),
-                new javax.vecmath.Vector3f()));
-        groundBodyConstructionInfo.restitution = 0.25f;
-        RigidBody groundRigidBody = new RigidBody(groundBodyConstructionInfo);
-        world.addRigidBody(groundRigidBody);
+    public void SetGravity(Vector3f gravity) {
+        world.setGravity(ToVecmath(gravity, new javax.vecmath.Vector3f()));
     }
 
     public void Update() {
@@ -47,5 +42,54 @@ public class Physics {
 
     public void Shutdown() {
         world.destroy();
+    }
+
+    public static class RigidBodyBuilder {
+        CollisionShape shape;
+        MotionState motionState;
+        RigidBodyConstructionInfo construction;
+
+        //All shapes' inputs are in local space
+        public void SetPlane(Vector3f normal, float bufferHeight) {
+            shape = new StaticPlaneShape(ToVecmath(normal, new javax.vecmath.Vector3f()), bufferHeight);
+        }
+        public void SetBox(Vector3f size) {
+            //Half extent is half of size
+            shape = new BoxShape(ToVecmath(size.div(2f, new Vector3f()), new javax.vecmath.Vector3f()));
+        }
+        public void SetSphere(float radius) {
+            shape = new SphereShape(radius);
+        }
+        public void SetCapsule(float radius, float height) {
+            shape = new CapsuleShape(radius, height);
+        }
+        public void SetCylinder(Vector3f size) {
+            //Half extent is half of size
+            shape = new CylinderShape(ToVecmath(size.div(2f, new Vector3f()), new javax.vecmath.Vector3f()));
+        }
+        public void SetCone(float radius, float heightOfPoint) {
+            shape = new ConeShape(radius, heightOfPoint);
+        }
+        public void SetConvexHull(Vector3f[] points) {
+            ConvexHullShape hullShape = new ConvexHullShape(new ObjectArrayList<>());
+            for (Vector3f point : points)
+                hullShape.addPoint(ToVecmath(point, new javax.vecmath.Vector3f()));
+            shape = hullShape;
+        }
+        //TODO: public void SetCompoundShape() {}
+
+        public void SetMotion(TransformComponent transform) {
+            motionState = new DefaultMotionState(new Transform(ToVecmath(transform.getModelMatrix(), new javax.vecmath.Matrix4f())));
+        }
+
+        public void SetConstruction(Vector3f baseInertia, float mass, float restitution, float friction) {
+            construction = new RigidBodyConstructionInfo(mass, motionState, shape, ToVecmath(baseInertia, new javax.vecmath.Vector3f()));
+            construction.restitution = restitution;
+            construction.friction = friction;
+        }
+
+        public RigidBody Build() {
+            return new RigidBody(construction);
+        }
     }
 }
