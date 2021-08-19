@@ -18,6 +18,8 @@ public class Physics {
     //Normally this would be public, but because of the math shenanigans I'm using JOML as input and this class handles it
     private DynamicsWorld world;
 
+    public static final RigidBodyBuilder BUILDER = new RigidBodyBuilder();
+
     public Physics() {
         BroadphaseInterface broadphase = new DbvtBroadphase();
         CollisionConfiguration collisionConfiguration = new DefaultCollisionConfiguration();
@@ -40,56 +42,11 @@ public class Physics {
         world.addRigidBody(body);
     }
 
-    public void Shutdown() {
-        world.destroy();
+    public void RemoveRigidBody(RigidBody rigidBody) {
+        world.removeRigidBody(rigidBody);
     }
 
-    public static class RigidBodyBuilder {
-        CollisionShape shape;
-        MotionState motionState;
-        RigidBodyConstructionInfo construction;
-
-        //All shapes' inputs are in local space
-        public void SetPlane(Vector3f normal, float bufferHeight) {
-            shape = new StaticPlaneShape(ToVecmath(normal, new javax.vecmath.Vector3f()), bufferHeight);
-        }
-        public void SetBox(Vector3f size) {
-            //Half extent is half of size
-            shape = new BoxShape(ToVecmath(size.div(2f, new Vector3f()), new javax.vecmath.Vector3f()));
-        }
-        public void SetSphere(float radius) {
-            shape = new SphereShape(radius);
-        }
-        public void SetCapsule(float radius, float height) {
-            shape = new CapsuleShape(radius, height);
-        }
-        public void SetCylinder(Vector3f size) {
-            //Half extent is half of size
-            shape = new CylinderShape(ToVecmath(size.div(2f, new Vector3f()), new javax.vecmath.Vector3f()));
-        }
-        public void SetCone(float radius, float heightOfPoint) {
-            shape = new ConeShape(radius, heightOfPoint);
-        }
-        public void SetConvexHull(Vector3f[] points) {
-            ConvexHullShape hullShape = new ConvexHullShape(new ObjectArrayList<>());
-            for (Vector3f point : points)
-                hullShape.addPoint(ToVecmath(point, new javax.vecmath.Vector3f()));
-            shape = hullShape;
-        }
-        //TODO: public void SetCompoundShape() {}
-
-        public void SetMotion(TransformComponent transform) {
-            motionState = new DefaultMotionState(new Transform(ToVecmath(transform.getModelMatrix(), new javax.vecmath.Matrix4f())));
-        }
-
-        public void SetConstruction(Vector3f baseInertia, float mass, float restitution, float friction) {
-            construction = new RigidBodyConstructionInfo(mass, motionState, shape, ToVecmath(baseInertia, new javax.vecmath.Vector3f()));
-            construction.restitution = restitution;
-            construction.friction = friction;
-        }
-
-        public RigidBody Build() {
-            return new RigidBody(construction);
-        }
+    public void Shutdown() {
+        world.destroy();
     }
 }

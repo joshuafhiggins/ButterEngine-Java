@@ -16,7 +16,7 @@ public class RenderSystem extends EntitySystem {
     public void addedToEngine(Engine engine) {
         Family family = Family.all(TransformComponent.class, RenderComponent.class).get();
         entities = engine.getEntitiesFor(family);
-        engine.addEntityListener(Family.all(TransformComponent.class, RenderComponent.class).get(), new EntityListener() {
+        engine.addEntityListener(family, new EntityListener() {
             @Override public void entityAdded(Entity entity) { /* Do Nothing */ }
             @Override public void entityRemoved(Entity entity) { rm.get(entity).mesh.Destroy(); }
         });

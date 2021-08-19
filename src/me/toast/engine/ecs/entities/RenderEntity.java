@@ -17,4 +17,11 @@ public class RenderEntity extends Entity {
         transformComponent = addAndReturn(new TransformComponent(position, rotation, scale));
         renderComponent = addAndReturn(new RenderComponent(mesh));
     }
+
+    //TODO: Remove the need for this
+    public RenderEntity(TransformComponent transformComponent, RenderComponent renderComponent) {
+        super();
+        transformComponent = addAndReturn(transformComponent);
+        renderComponent = addAndReturn(renderComponent);
+    }
 }
