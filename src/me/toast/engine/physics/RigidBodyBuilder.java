@@ -6,7 +6,7 @@ import com.bulletphysics.linearmath.*;
 import com.bulletphysics.util.*;
 import org.joml.*;
 
-import me.toast.engine.ecs.components.TransformComponent;
+import me.toast.engine.world.components.Transform;
 
 import static me.toast.engine.utils.MathConv.*;
 
@@ -51,8 +51,8 @@ public class RigidBodyBuilder {
     }
     //TODO: public RigidBodyBuilder SetCompoundShape() {}
 
-    public RigidBodyBuilder SetMotion(TransformComponent transform) {
-        motionState = new DefaultMotionState(new Transform(ToVecmath(transform.getModelMatrix(), new javax.vecmath.Matrix4f())));
+    public RigidBodyBuilder SetMotion(Transform transform) {
+        motionState = new DefaultMotionState(new com.bulletphysics.linearmath.Transform(ToVecmath(transform.getModelMatrix(), new javax.vecmath.Matrix4f())));
         return this;
     }
 

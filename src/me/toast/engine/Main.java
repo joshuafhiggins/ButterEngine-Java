@@ -32,8 +32,6 @@ public class Main {
             Mod.LOADED_MOD.Window.Update();
         }
 
-        Mod.LOADED_MOD.Ashley.removeAllEntities();
-        Mod.LOADED_MOD.Ashley.removeAllSystems();
         Mod.LOADED_MOD.JBullet.Shutdown();
         Shaders.INSTANCE.Destroy();
         Materials.INSTANCE.Destroy();

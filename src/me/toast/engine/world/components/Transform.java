@@ -1,11 +1,11 @@
-package me.toast.engine.ecs.components;
+package me.toast.engine.world.components;
 
 import com.badlogic.ashley.core.Component;
 import org.joml.Matrix4f;
 import org.joml.Quaternionf;
 import org.joml.Vector3f;
 
-public class TransformComponent implements Component {
+public class Transform implements Component {
 
     public Vector3f position;
     public Quaternionf rotation;
@@ -13,7 +13,7 @@ public class TransformComponent implements Component {
 
     private final Matrix4f model;
 
-    public TransformComponent(Vector3f position, Quaternionf rotation, Vector3f scale) {
+    public Transform(Vector3f position, Quaternionf rotation, Vector3f scale) {
         this.position = position;
         this.rotation = rotation;
         this.scale = scale;
