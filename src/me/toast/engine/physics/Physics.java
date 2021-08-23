@@ -2,14 +2,9 @@ package me.toast.engine.physics;
 
 import com.bulletphysics.collision.broadphase.*;
 import com.bulletphysics.collision.dispatch.*;
-import com.bulletphysics.collision.shapes.*;
 import com.bulletphysics.dynamics.*;
 import com.bulletphysics.dynamics.constraintsolver.*;
-import com.bulletphysics.linearmath.*;
-import com.bulletphysics.util.*;
 import org.joml.*;
-
-import me.toast.engine.ecs.components.TransformComponent;
 
 import static me.toast.engine.utils.MathConv.*;
 

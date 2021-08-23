@@ -146,21 +146,6 @@
     <mapping directory="" vcs="Git" />
   </component>
   <component name="libraryTable">
-    <library name="badlogicgames.ashley" type="repository">
-      <properties maven-id="com.badlogicgames.ashley:ashley:1.7.4" />
-      <CLASSES>
-        <root url="jar://$PROJECT_DIR$/libs/ashley-1.7.4.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/gdx-1.9.9.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$PROJECT_DIR$/libs/ashley-1.7.4-javadoc.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/gdx-1.9.9-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$PROJECT_DIR$/libs/ashley-1.7.4-sources.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/gdx-1.9.9-sources.jar!/" />
-      </SOURCES>
-    </library>
     <library name="libs">
       <CLASSES>
         <root url="file://$PROJECT_DIR$/libs" />
