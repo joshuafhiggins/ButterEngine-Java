@@ -15,13 +15,12 @@ Butter Engine is a game engine made in LWJGL and uses it's subset libraries for 
    - [ ] Transparency
    
 ### ECS
-   - [X] Implement Ashley
    - [X] Entity Creation
    - [X] Logic Creation
 
 ### Physics
-   - [ ] Implement JBullet
-   - [ ] Math Compatibility
+   - [X] Implement JBullet
+   - [X] Math Compatibility
    - [ ] Physics Model Loading
    - [ ] Add Source Engine Movement
 

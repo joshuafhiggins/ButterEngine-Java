@@ -20,7 +20,6 @@ public class Mod {
     public Window Window;
     public Camera Camera;
 
-    public Engine Ashley;
     public Physics JBullet;
 
     public Mod(String id, String name, String description, String author, int width, int height) {
@@ -37,7 +36,6 @@ public class Mod {
         //Creates our OpenGL Context
         this.Window.Capabilities = GL.createCapabilities();
 
-        Ashley = new Engine();
         JBullet = new Physics();
     }
 
