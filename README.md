@@ -4,7 +4,7 @@ Butter Engine is a game engine made in LWJGL and uses it's subset libraries for 
 
 ## TODO/Goals/What I'm working on:
   
-### Rendering - 
+### Rendering
    - [X] Rasterizing Shader Pipeline
    - [X] Mesh System
    - [X] Model Loading (Not fully supported though)
