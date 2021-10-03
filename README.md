@@ -9,12 +9,12 @@ Butter Engine is a game engine made in LWJGL and uses it's subset libraries for 
    - [X] Mesh System
    - [X] Model Loading (Not fully supported though)
    - [ ] Multi-Texture Suppport
-   - [ ] PBR Lighting
+   - [ ] PBR & Phong Lighting
    - [ ] Dynamic Lights
    - [ ] Baked Lightmaps
    - [ ] Transparency
 
-### UI - Hashbrown
+### UI
    - [ ] Intergrate Legui
    - [ ] Make our own Hasbrown programming language for UI
 
@@ -51,7 +51,7 @@ Butter Engine is a game engine made in LWJGL and uses it's subset libraries for 
 
 ### Adanced Features (way after first stable release)
    - [ ] Raytracing
-   - [ ] Vulkan Support
+   - [ ] Vulkan/DirectX Support
    - [ ] Steam Audio
    - [ ] SteamWorks (Networking)
 
