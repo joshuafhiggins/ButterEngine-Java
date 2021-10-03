@@ -1,6 +1,6 @@
 # Butter Engine
 
-Butter Engine is a game engine made in LWJGL and uses it's subset libraries for various tasks. What originally started out as a simple rendering library to make the use of LWJGL easier is now becoming a fully fledged engine with easier end user development.
+Butter Engine is a game engine made in LWJGL and uses its subset libraries for various tasks. What originally started out as a simple rendering library to make the use of LWJGL easier is now becoming a fully fledged engine with easier end user development.
 
 ## TODO/Goals/What I'm working on:
   
@@ -48,9 +48,9 @@ Butter Engine is a game engine made in LWJGL and uses it's subset libraries for 
   
 ### Networking
    - [ ] Implement Kyronet
-   - [ ] Have a basis for Networking that supports what Butter Engine already does (i.e Do this last and have it do basic mod stuff)
+   - [ ] Have a basis for Networking that supports what Butter Engine already does (i.e. Do this last and have it do basic mod stuff)
 
-### Adanced Features (way after first stable release)
+### Advanced Features (way after first stable release)
    - [ ] Raytracing
    - [ ] Vulkan/DirectX Support
    - [ ] Steam Audio
