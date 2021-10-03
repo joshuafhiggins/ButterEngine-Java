@@ -5,22 +5,21 @@ Butter Engine is a game engine made in LWJGL and uses it's subset libraries for 
 ## TODO/Goals/What I'm working on:
   
 ### Rendering
-   - [X] Rasterizing Shader Pipeline
+   - [X] Rasterize Pipeline Shaders
    - [X] Mesh System
-   - [X] Model Loading (Not fully supported though)
-   - [ ] Multi-Texture Suppport
+   - [ ] Model Loading
+   - [ ] Make a dev tool for making Models with Animation data
+   - [ ] Multi-Texture Support
+   - [ ] Make a dev tool for making Materials
    - [ ] PBR & Phong Lighting
    - [ ] Dynamic Lights
    - [ ] Baked Lightmaps
    - [ ] Transparency
 
 ### UI
-   - [ ] Intergrate Legui
+   - [ ] Integrate Legui
    - [ ] Make our own Hasbrown programming language for UI
-
-### ECS
-   - [X] Entity Creation
-   - [X] Logic Creation
+   - [ ] Make a dev tool for making UI
 
 ### Physics
    - [X] Implement JBullet
@@ -29,10 +28,13 @@ Butter Engine is a game engine made in LWJGL and uses it's subset libraries for 
    - [ ] Add Source Engine Movement
 
 ### Worlds
+   - [X] Entity Creation
+   - [X] Logic Creation
    - [ ] First Person Camera
    - [ ] Third Person Camera
    - [ ] World Loading
-   - [ ] Hammer Maps
+   - [ ] Hammer 
+   - [ ] Make a dev tool for making Maps
   
 ### Audio
    - [ ] Spacial Audio
@@ -40,7 +42,6 @@ Butter Engine is a game engine made in LWJGL and uses it's subset libraries for 
    - [ ] Volume Control
  
 ### Proper Modding Support
-   - [ ] Tooling
    - [ ] Documentation
    - [ ] Mod Loading/Unloading
    - [ ] Event Systems
@@ -56,4 +57,4 @@ Butter Engine is a game engine made in LWJGL and uses it's subset libraries for 
    - [ ] SteamWorks (Networking)
 
 Butter Engine is under the MIT License, check the [license](https://github.com/higgy999/ButterEngine/blob/main/LICENSE.md) for more details.
-The libraries Butter Engine uses fall under their own respective licenses which are found next to them in the lib folder
+The libraries Butter Engine uses fall under their own respective licenses which are found in the lib folder

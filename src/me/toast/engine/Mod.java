@@ -1,6 +1,5 @@
 package me.toast.engine;
 
-import com.badlogic.ashley.core.Engine;
 import me.toast.engine.physics.Physics;
 import me.toast.engine.scene.Camera;
 import me.toast.engine.window.Window;
