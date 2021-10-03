@@ -4,6 +4,7 @@ import com.bulletphysics.collision.shapes.*;
 import com.bulletphysics.dynamics.*;
 import com.bulletphysics.linearmath.*;
 import com.bulletphysics.util.*;
+import me.toast.engine.rendering.Vertex;
 import org.joml.*;
 
 import me.toast.engine.world.components.Transform;
@@ -42,10 +43,10 @@ public class RigidBodyBuilder {
         shape = new ConeShape(radius, heightOfPoint);
         return this;
     }
-    public RigidBodyBuilder SetConvexHull(Vector3f[] points) {
+    public RigidBodyBuilder SetConvexHull(Vertex[] points) {
         ConvexHullShape hullShape = new ConvexHullShape(new ObjectArrayList<>());
-        for (Vector3f point : points)
-            hullShape.addPoint(ToVecmath(point, new javax.vecmath.Vector3f()));
+        for (Vertex point : points)
+            hullShape.addPoint(ToVecmath(point.position, new javax.vecmath.Vector3f()));
         shape = hullShape;
         return this;
     }

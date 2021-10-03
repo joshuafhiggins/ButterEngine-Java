@@ -63,4 +63,28 @@ public class Model {
 
         return internal;
     }
+
+    public static Vertex[] LoadPhysicsModel(String name) {
+        AIScene scene = aiImportFile("resources/assets/models/" + name,
+                aiProcess_JoinIdenticalVertices | aiProcess_Triangulate | aiProcess_FixInfacingNormals);
+        //TODO: Figure out if Bullet handles indices or not
+
+        if (scene == null) System.err.println("Couldn't load model at: " + "assets/models/" + name);
+        assert scene != null;
+
+        AIMesh mesh = AIMesh.create(scene.mMeshes().get(0));
+        int vertexCount = mesh.mNumVertices();
+
+        AIVector3D.Buffer vertices = mesh.mVertices();
+
+        Vertex[] vertexList = new Vertex[vertexCount];
+        for (int j = 0; j < vertexCount; j++) {
+            AIVector3D vertex = vertices.get(j);
+            Vector3f meshVertex = new Vector3f(vertex.x(), vertex.y(), vertex.z());
+
+            vertexList[j] = new Vertex(meshVertex);
+        }
+
+        return vertexList;
+    }
 }

@@ -1,11 +1,10 @@
 package me.toast.engine.world.components;
 
-import com.badlogic.ashley.core.Component;
 import org.joml.Matrix4f;
 import org.joml.Quaternionf;
 import org.joml.Vector3f;
 
-public class Transform implements Component {
+public class Transform {
 
     public Vector3f position;
     public Quaternionf rotation;
