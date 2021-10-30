@@ -9,5 +9,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="libs" level="project" />
+    <orderEntry type="library" name="labymedia.ultralight.java.base" level="project" />
+    <orderEntry type="library" name="labymedia.ultralight.java.databind" level="project" />
   </component>
 </module>

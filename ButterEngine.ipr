@@ -146,6 +146,33 @@
     <mapping directory="" vcs="Git" />
   </component>
   <component name="libraryTable">
+    <library name="labymedia.ultralight.java.base" type="repository">
+      <properties maven-id="com.labymedia:ultralight-java-base:0.4.12" />
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/libs/ultralight-java-base-0.4.12.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$PROJECT_DIR$/libs/ultralight-java-base-0.4.12-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/libs/ultralight-java-base-0.4.12-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="labymedia.ultralight.java.databind" type="repository">
+      <properties maven-id="com.labymedia:ultralight-java-databind:0.4.12" />
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/libs/ultralight-java-databind-0.4.12.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/ultralight-java-base-0.4.12.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$PROJECT_DIR$/libs/ultralight-java-databind-0.4.12-javadoc.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/ultralight-java-base-0.4.12-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/libs/ultralight-java-databind-0.4.12-sources.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/ultralight-java-base-0.4.12-sources.jar!/" />
+      </SOURCES>
+    </library>
     <library name="libs">
       <CLASSES>
         <root url="file://$PROJECT_DIR$/libs" />
