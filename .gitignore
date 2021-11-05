@@ -24,5 +24,9 @@ hs_err_pid*
 #Compile Directories
 out/
 
+#Ultralight Java bin files
+bin/ultralight-java.*
+bin/ultralight-java-gpu.*
+
 # File-based project format
 *.iws
