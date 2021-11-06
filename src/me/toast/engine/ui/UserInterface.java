@@ -24,40 +24,17 @@ public class UserInterface {
             libraryPath = nativesDir.toAbsolutePath().toString();
         }
 
-        System.out.println(libraryPath);
+        System.out.println("libraryPath: "+libraryPath);
 
-        // Set the path back
-        //System.setProperty("java.library.path", libraryPath);
-        System.setProperty("java.library.path", nativesDir.toAbsolutePath().toString());
+        System.setProperty("java.library.path", libraryPath);
 
-        System.out.println(System.getProperty("java.library.path"));
+        System.out.println("java.library.path: "+System.getProperty("java.library.path"));
+        System.out.println("nativesDir: "+nativesDir.toAbsolutePath().toString());
 
-        /*System.loadLibrary("./bin/AppCore");
-        System.loadLibrary("./bin/UltralightCore");
-        System.loadLibrary("./bin/Ultralight");
-        System.loadLibrary("./bin/WebCore");*/
-
-        System.loadLibrary("AppCore");
-        System.loadLibrary("UltralightCore");
-        System.loadLibrary("Ultralight");
-        System.loadLibrary("WebCore");
-
-
-        // Extract the natives
-        //
-        // This only extracts the native library for ultralight-java-base, but not the other Ultralight libraries.
-        // It is your task to get them into the run directory, possibly by extracting them on your own.
         try {
             UltralightGPUDriverNativeUtil.extractNativeLibrary(nativesDir);
             UltralightJava.extractNativeLibrary(nativesDir);
-        } catch (UltralightLoadException e) {
-            e.printStackTrace();
-        }
 
-        // Load the native libraries from the given directory. This method makes sure everything is loaded in the
-        // correct order. If you want to manually load all natives, either don't use this function or pass 'false' as
-        // the second parameter.
-        try {
             UltralightGPUDriverNativeUtil.load(nativesDir);
             UltralightJava.load(nativesDir);
         } catch (UltralightLoadException e) {
