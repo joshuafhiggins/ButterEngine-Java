@@ -27,10 +27,10 @@ out/
 #Ultralight Java bin files
 bin/ultralight-java.dll
 bin/ultralight-java-gpu.dll
-bin/ultralight-java.so
-bin/ultralight-java-gpu.so
-bin/ultralight-java.dylib
-bin/ultralight-java-gpu.dylib
+bin/libultralight-java-gpu.so
+bin/libultralight-java.so
+bin/libultralight-java.dylib
+bin/libultralight-java-gpu.dylib
 
 # File-based project format
 *.iws
