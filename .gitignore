@@ -25,8 +25,8 @@ hs_err_pid*
 out/
 
 #Ultralight Java bin files
-bin/ultralight-java.*
-bin/ultralight-java-gpu.*
+ultralight-java.*
+ultralight-java-gpu.*
 
 # File-based project format
 *.iws
