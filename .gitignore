@@ -25,8 +25,12 @@ hs_err_pid*
 out/
 
 #Ultralight Java bin files
-ultralight-java.*
-ultralight-java-gpu.*
+bin/ultralight-java.dll
+bin/ultralight-java-gpu.dll
+bin/ultralight-java.so
+bin/ultralight-java-gpu.so
+bin/ultralight-java.dylib
+bin/ultralight-java-gpu.dylib
 
 # File-based project format
 *.iws
