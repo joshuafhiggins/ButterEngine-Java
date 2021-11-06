@@ -11,5 +11,6 @@
     <orderEntry type="library" name="libs" level="project" />
     <orderEntry type="library" name="labymedia.ultralight.java.base" level="project" />
     <orderEntry type="library" name="labymedia.ultralight.java.databind" level="project" />
+    <orderEntry type="library" name="labymedia.ultralight.java.gpu" level="project" />
   </component>
 </module>

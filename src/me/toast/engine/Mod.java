@@ -2,6 +2,7 @@ package me.toast.engine;
 
 import me.toast.engine.physics.Physics;
 import me.toast.engine.scene.Camera;
+import me.toast.engine.ui.UserInterface;
 import me.toast.engine.window.Window;
 import org.lwjgl.opengl.GL;
 
@@ -20,6 +21,7 @@ public class Mod {
     public Camera Camera;
 
     public Physics JBullet;
+    public UserInterface Hashbrown;
 
     public Mod(String id, String name, String description, String author, int width, int height) {
         LOADED_MOD = this;
@@ -36,6 +38,7 @@ public class Mod {
         this.Window.Capabilities = GL.createCapabilities();
 
         JBullet = new Physics();
+        Hashbrown = new UserInterface();
     }
 
     //TODO: Make a proper event system
