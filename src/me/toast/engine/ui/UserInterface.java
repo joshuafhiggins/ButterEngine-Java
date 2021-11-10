@@ -11,13 +11,7 @@ public class UserInterface {
     public UserInterface() {
         // Get a directory to put natives into
         Path nativesDir = Paths.get("bin/");
-
-<<<<<<< Updated upstream
-        //Windows PATH in Java can't be changed at runtime. Needs to be done ahead of time
-        //TODO: Test this in linux if the new binaries work
-
-=======
->>>>>>> Stashed changes
+		
         // Get the existing native library path
         String libraryPath = System.getProperty("java.library.path");
         if (libraryPath != null) {
@@ -30,8 +24,8 @@ public class UserInterface {
         System.setProperty("java.library.path", libraryPath);
 
         try {
-            UltralightJava.extractNativeLibrary(nativesDir);
             UltralightGPUDriverNativeUtil.extractNativeLibrary(nativesDir);
+			UltralightJava.extractNativeLibrary(nativesDir);
 
             UltralightJava.load(nativesDir);
             UltralightGPUDriverNativeUtil.load(nativesDir);
