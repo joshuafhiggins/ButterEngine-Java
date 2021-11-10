@@ -2,8 +2,6 @@ package me.toast.engine.ui;
 
 import com.labymedia.ultralight.*;
 import com.labymedia.ultralight.gpu.UltralightGPUDriverNativeUtil;
-import com.labymedia.ultralight.os.Architecture;
-import com.labymedia.ultralight.os.OperatingSystem;
 
 import java.io.File;
 import java.nio.file.*;
@@ -14,9 +12,12 @@ public class UserInterface {
         // Get a directory to put natives into
         Path nativesDir = Paths.get("bin/");
 
+<<<<<<< Updated upstream
         //Windows PATH in Java can't be changed at runtime. Needs to be done ahead of time
         //TODO: Test this in linux if the new binaries work
 
+=======
+>>>>>>> Stashed changes
         // Get the existing native library path
         String libraryPath = System.getProperty("java.library.path");
         if (libraryPath != null) {
