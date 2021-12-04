@@ -3,7 +3,11 @@ package test.game;
 import me.toast.engine.Mod;
 import me.toast.engine.rendering.*;
 import me.toast.engine.scene.Camera;
+import me.toast.engine.world.components.RenderComponent;
+import me.toast.engine.world.components.TransformComponent;
 import me.toast.engine.world.entities.RenderEntity;
+import me.toast.engine.world.systems.RenderSystem;
+import me.toast.engine.world.systems.RigidBodySystem;
 import org.joml.*;
 
 import java.lang.Math;
@@ -14,6 +18,9 @@ public class DeathmatchMod extends Mod {
 
     public Mesh mesh;
     public RenderEntity test;
+
+    RenderSystem renderSystem = new RenderSystem();
+    RigidBodySystem rigidBodySystem = new RigidBodySystem();
 
     public DeathmatchMod(int width, int height) {
         super("DMTest",
@@ -26,10 +33,13 @@ public class DeathmatchMod extends Mod {
     @Override
     public void Init() {
         mesh = Model.LoadScene("dragon.obj", Shaders.INSTANCE.BaseShader, Materials.INSTANCE.Dragon)[0];
-        test = new RenderEntity(new Vector3f(0, -5, -15), new Quaternionf(), new Vector3f(1), mesh);
+        test = new RenderEntity(new TransformComponent(new Vector3f(0, -5, -15), new Quaternionf(), new Vector3f(1)), new RenderComponent(mesh));
 
         Camera = new Camera(new Vector3f(), new Quaternionf());
         Camera.setProjection((float) Math.toRadians(90f), (float) Window.Width / (float) Window.Height, 0.1f, 1000f);
+
+        Ashley.addSystem(renderSystem);
+        Ashley.addSystem(rigidBodySystem);
 
         super.Init();
     }
@@ -45,21 +55,21 @@ public class DeathmatchMod extends Mod {
                 Window.InputEvents.SetMouseState(false);
 
             Mod.LOADED_MOD.JBullet.Update();
-            test.Update();
+
+            Ashley.update(Window.Delta);
 
             super.Update();
         }
 
         @Override
         public void Render() {
-            test.Render();
-
             super.Render();
         }
 
     @Override
     public void Shutdown() {
-        test.Destroy();
+        Ashley.removeAllSystems();
+        Ashley.removeAllEntities();
 
         super.Shutdown();
     }

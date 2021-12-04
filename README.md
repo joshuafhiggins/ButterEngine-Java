@@ -2,23 +2,21 @@
 
 Butter Engine is a game engine made in LWJGL and uses its subset libraries for various tasks. What originally started out as a simple rendering library to make the use of LWJGL easier is now becoming a fully fledged engine with easier end user development.
 
-## TODO/Goals/What I'm working on:
+## TODO / What I'm working on for a first release:
   
 ### Rendering
-   - [X] Rasterize Pipeline Shaders
+   - [X] Rasterization Pipeline Shader Support
    - [X] Mesh System
    - [ ] Model Loading
-   - [ ] Make a dev tool for making Models with Animation & Physics data
-   - [ ] Multi-Texture Support
-   - [ ] Make a dev tool for making Materials
-   - [ ] PBR & Phong Lighting
-   - [ ] Dynamic Lights
-   - [ ] Baked Lightmaps
+   - [ ] Baking Models with Animation & Physics data
+   - [ ] Multi-Texture Support/Materials
    - [ ] Transparency
+   - [ ] PBR and/or Phong Lighting Models
+   - [ ] Dynamic Lights
+   - [ ] Baked Lighting
 
 ### UI
-   - [ ] Integrate Legui
-   - [ ] Make our own Hasbrown programming language for UI
+   - [ ] Integrate Legui or CEF or Ultralight
    - [ ] Make a dev tool for making UI
 
 ### Physics
@@ -27,13 +25,11 @@ Butter Engine is a game engine made in LWJGL and uses its subset libraries for v
    - [X] Physics Model Loading
 
 ### Worlds
-   - [ ] Entity Creation (Redo again with Ashley)
-   - [ ] Logic Creation (Redo again with Ashley)
+   - [X] Entity Creation
+   - [X] Logic Creation
    - [ ] First Person Camera
-   - [ ] Third Person Camera
    - [ ] World Loading
-   - [ ] Hammer 
-   - [ ] Make a dev tool for making Maps
+   - [ ] Hammer Support for Making Maps
   
 ### Audio
    - [ ] Spacial Audio
@@ -44,16 +40,19 @@ Butter Engine is a game engine made in LWJGL and uses its subset libraries for v
    - [ ] Documentation
    - [ ] Mod Loading/Unloading
    - [ ] Event Systems
-  
-### Networking
-   - [ ] Implement Kyronet
-   - [ ] Have a basis for Networking that supports what Butter Engine already does (i.e. Do this last and have it do basic mod stuff)
 
-### Advanced Features (way after first stable release)
+## Advanced Features (way after first stable release)
+
+### Networking
+- [ ] Implement Kyronet & SteamWorks
+- [ ] Support Engine Functions over Networking
+
+### Rendering
    - [ ] Raytracing
    - [ ] Vulkan/DirectX Support
+
+### Audio
    - [ ] Steam Audio
-   - [ ] SteamWorks (Networking)
 
 Butter Engine is under the MIT License, check the [license](https://github.com/higgy999/ButterEngine/blob/main/LICENSE.md) for more details.
 The libraries Butter Engine uses fall under their own respective licenses which are found in the lib folder

@@ -1,5 +1,6 @@
 package me.toast.engine;
 
+import com.badlogic.ashley.core.Engine;
 import me.toast.engine.physics.Physics;
 import me.toast.engine.scene.Camera;
 import me.toast.engine.ui.UserInterface;
@@ -20,8 +21,9 @@ public class Mod {
     public Window Window;
     public Camera Camera;
 
+    public Engine Ashley;
     public Physics JBullet;
-    public UserInterface Hashbrown;
+    //public UserInterface Hashbrown;
 
     public Mod(String id, String name, String description, String author, int width, int height) {
         LOADED_MOD = this;
@@ -37,8 +39,9 @@ public class Mod {
         //Creates our OpenGL Context
         this.Window.Capabilities = GL.createCapabilities();
 
+        Ashley = new Engine();
         JBullet = new Physics();
-        Hashbrown = new UserInterface();
+        //Hashbrown = new UserInterface();
     }
 
     //TODO: Make a proper event system

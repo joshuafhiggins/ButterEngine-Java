@@ -24,8 +24,8 @@ public class UserInterface {
         System.setProperty("java.library.path", libraryPath);
 
         try {
-            UltralightGPUDriverNativeUtil.extractNativeLibrary(nativesDir);
 			UltralightJava.extractNativeLibrary(nativesDir);
+            UltralightGPUDriverNativeUtil.extractNativeLibrary(nativesDir);
 
             UltralightJava.load(nativesDir);
             UltralightGPUDriverNativeUtil.load(nativesDir);

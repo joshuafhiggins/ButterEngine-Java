@@ -1,29 +1,15 @@
 package me.toast.engine.world.entities;
 
-import me.toast.engine.Mod;
-import me.toast.engine.rendering.Mesh;
-import me.toast.engine.world.components.Transform;
-import org.joml.Quaternionf;
-import org.joml.Vector3f;
+import me.toast.engine.world.components.RenderComponent;
+import me.toast.engine.world.components.TransformComponent;
 
-public class RenderEntity extends BaseEntity {
+public class RenderEntity extends PositionEntity {
 
-    public Mesh mesh;
+    public RenderComponent meshCom;
 
-    public RenderEntity(Vector3f position, Quaternionf rotation, Vector3f scale, Mesh mesh) {
-        super(new Transform(position, rotation, scale));
-        this.mesh = mesh;
-    }
-
-    @Override
-    public void Render() {
-        mesh.Render(transform, Mod.LOADED_MOD.Camera);
-        super.Render();
-    }
-
-    @Override
-    public void Destroy() {
-        mesh.Destroy();
-        super.Destroy();
+    public RenderEntity(TransformComponent transform, RenderComponent mesh) {
+        super(transform);
+        this.add(mesh);
+        this.meshCom = this.getComponent(RenderComponent.class);
     }
 }
