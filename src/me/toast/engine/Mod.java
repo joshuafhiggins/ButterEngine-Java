@@ -1,6 +1,8 @@
 package me.toast.engine;
 
 import com.badlogic.ashley.core.Engine;
+import javafx.application.Application;
+import javafx.application.Platform;
 import me.toast.engine.physics.Physics;
 import me.toast.engine.scene.Camera;
 import me.toast.engine.ui.UserInterface;
@@ -23,7 +25,7 @@ public class Mod {
 
     public Engine Ashley;
     public Physics JBullet;
-    //public UserInterface Hashbrown;
+    public UserInterface Hashbrown;
 
     public Mod(String id, String name, String description, String author, int width, int height) {
         LOADED_MOD = this;
@@ -42,6 +44,7 @@ public class Mod {
         Ashley = new Engine();
         JBullet = new Physics();
         //Hashbrown = new UserInterface();
+        new Thread(() -> Application.launch(UserInterface.class), "User Interface (JavaFX)").start();
     }
 
     //TODO: Make a proper event system
