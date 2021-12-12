@@ -43,7 +43,8 @@ public class Mod {
 
         Ashley = new Engine();
         JBullet = new Physics();
-        //Hashbrown = new UserInterface();
+
+        System.setProperty("prism.allowhidpi", "false");
         new Thread(() -> Application.launch(UserInterface.class), "User Interface (JavaFX)").start();
     }
 
