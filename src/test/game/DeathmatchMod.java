@@ -1,30 +1,19 @@
 package test.game;
 
 import javafx.application.Platform;
-import javafx.scene.SnapshotParameters;
-import javafx.scene.SnapshotResult;
-import javafx.scene.image.WritableImage;
-import javafx.util.Callback;
 import me.toast.engine.Mod;
 import me.toast.engine.rendering.*;
 import me.toast.engine.scene.Camera;
-import me.toast.engine.ui.UserInterface;
 import me.toast.engine.world.components.RenderComponent;
 import me.toast.engine.world.components.TransformComponent;
 import me.toast.engine.world.entities.RenderEntity;
 import me.toast.engine.world.systems.RenderSystem;
 import me.toast.engine.world.systems.RigidBodySystem;
 import org.joml.*;
-import org.lwjgl.glfw.GLFWVidMode;
-import org.lwjgl.system.MemoryStack;
-import org.lwjglx.Sys;
 
 import java.lang.Math;
-import java.nio.IntBuffer;
-import java.util.Timer;
 
 import static org.lwjgl.glfw.GLFW.*;
-import static org.lwjgl.system.MemoryStack.stackPush;
 
 public class DeathmatchMod extends Mod {
 

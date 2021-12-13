@@ -2,7 +2,6 @@ package me.toast.engine;
 
 import com.badlogic.ashley.core.Engine;
 import javafx.application.Application;
-import javafx.application.Platform;
 import me.toast.engine.physics.Physics;
 import me.toast.engine.scene.Camera;
 import me.toast.engine.ui.UserInterface;
