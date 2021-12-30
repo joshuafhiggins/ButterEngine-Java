@@ -1,6 +1,5 @@
 package test.game;
 
-import javafx.application.Platform;
 import me.toast.engine.Mod;
 import me.toast.engine.rendering.*;
 import me.toast.engine.scene.Camera;
@@ -47,10 +46,8 @@ public class DeathmatchMod extends Mod {
 
         @Override
         public void Update() {
-            if (Window.InputEvents.isKeyDown(GLFW_KEY_ESCAPE)) {
+            if (Window.InputEvents.isKeyDown(GLFW_KEY_ESCAPE))
                 glfwSetWindowShouldClose(Window.ID, true);
-                Platform.exit();
-            }
 
             if (Window.InputEvents.isButtonDown(GLFW_MOUSE_BUTTON_LEFT))
                 Window.InputEvents.SetMouseState(true);

@@ -13,6 +13,5 @@
     <orderEntry type="library" name="labymedia.ultralight.java.databind" level="project" />
     <orderEntry type="library" name="labymedia.ultralight.java.gpu" level="project" />
     <orderEntry type="library" name="badlogicgames.ashley" level="project" />
-    <orderEntry type="library" name="lib" level="project" />
   </component>
 </module>

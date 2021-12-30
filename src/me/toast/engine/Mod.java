@@ -1,7 +1,6 @@
 package me.toast.engine;
 
 import com.badlogic.ashley.core.Engine;
-import javafx.application.Application;
 import me.toast.engine.physics.Physics;
 import me.toast.engine.scene.Camera;
 import me.toast.engine.ui.UserInterface;
@@ -42,9 +41,6 @@ public class Mod {
 
         Ashley = new Engine();
         JBullet = new Physics();
-
-        System.setProperty("prism.allowhidpi", "false");
-        new Thread(() -> Application.launch(UserInterface.class), "User Interface (JavaFX)").start();
     }
 
     //TODO: Make a proper event system
