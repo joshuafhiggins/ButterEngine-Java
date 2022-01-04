@@ -10,6 +10,7 @@ import static org.lwjgl.opengl.GL11.*;
 public class Main {
 
     public void run() {
+        System.setProperty("imgui.library.path", "./libs");
         new DeathmatchMod(1280, 720);
 
         Mod.LOADED_MOD.Init();
