@@ -1,8 +1,10 @@
 package test.game;
 
 import me.toast.engine.Mod;
+import me.toast.engine.physics.Physics;
 import me.toast.engine.rendering.*;
 import me.toast.engine.scene.Camera;
+import me.toast.engine.ui.UserInterface;
 import me.toast.engine.world.components.RenderComponent;
 import me.toast.engine.world.components.TransformComponent;
 import me.toast.engine.world.entities.RenderEntity;
@@ -68,8 +70,10 @@ public class DeathmatchMod extends Mod {
 
     @Override
     public void Shutdown() {
-        Ashley.removeAllSystems();
         Ashley.removeAllEntities();
+        Ashley.removeAllSystems();
+        JBullet.Destroy();
+        Hashbrown.Destroy();
 
         super.Shutdown();
     }

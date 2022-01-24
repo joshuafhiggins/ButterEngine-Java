@@ -33,7 +33,7 @@ public class Main {
             Mod.LOADED_MOD.Window.Update();
         }
 
-        Mod.LOADED_MOD.JBullet.Shutdown();
+        Mod.LOADED_MOD.JBullet.Destroy();
         Shaders.INSTANCE.Destroy();
         Materials.INSTANCE.Destroy();
         Mod.LOADED_MOD.Shutdown();
