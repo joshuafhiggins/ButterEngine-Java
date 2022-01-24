@@ -15,35 +15,35 @@ public class BufferObject {
         public VAO() { ID = glGenVertexArrays(); }
         @Override public void Bind() { glBindVertexArray(ID); }
         @Override public void Unbind() { glBindVertexArray(0); }
-        @Override public void Destroy() { glDeleteVertexArrays(ID); }
+        @Override public void Cleanup() { glDeleteVertexArrays(ID); }
     }
 
     public static class IBO extends BufferObject {
         public IBO(int[] indices) { ID = storeData(MemoryUtil.memAllocInt(indices.length).put(indices).flip()); }
         @Override public void Bind() { glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ID); }
         @Override public void Unbind() { glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0); }
-        @Override public void Destroy() { glDeleteBuffers(ID); }
+        @Override public void Cleanup() { glDeleteBuffers(ID); }
     }
 
     public static class VBO extends BufferObject {
         public VBO(Vertex[] vertices, int index) { ID = storeData(MemoryUtil.memAllocFloat(vertices.length * 3).put(getPositionData(vertices)).flip(), index, 3); }
         @Override public void Bind() { glBindBuffer(GL_ARRAY_BUFFER, ID); }
         @Override public void Unbind() { glBindBuffer(GL_ARRAY_BUFFER, 0); }
-        @Override public void Destroy() { glDeleteBuffers(ID); }
+        @Override public void Cleanup() { glDeleteBuffers(ID); }
     }
 
     public static class CBO extends BufferObject {
         public CBO(Vertex[] vertices, int index) { ID = storeData(MemoryUtil.memAllocFloat(vertices.length * 3).put(getColorData(vertices)).flip(), index, 3); }
         @Override public void Bind() { glBindBuffer(GL_ARRAY_BUFFER, ID); }
         @Override public void Unbind() { glBindBuffer(GL_ARRAY_BUFFER, 0); }
-        @Override public void Destroy() { glDeleteBuffers(ID); }
+        @Override public void Cleanup() { glDeleteBuffers(ID); }
     }
 
     public static class TBO extends BufferObject {
         public TBO(Vertex[] vertices, int index) { ID = storeData(MemoryUtil.memAllocFloat(vertices.length * 2).put(getTextureCoordData(vertices)).flip(), index, 2); }
         @Override public void Bind() { glBindBuffer(GL_ARRAY_BUFFER, ID); }
         @Override public void Unbind() { glBindBuffer(GL_ARRAY_BUFFER, 0); }
-        @Override public void Destroy() { glDeleteBuffers(ID); }
+        @Override public void Cleanup() { glDeleteBuffers(ID); }
     }
 
     //Use for like anything else
@@ -66,7 +66,7 @@ public class BufferObject {
     }
 
     //For overrides
-    public void Destroy() {}
+    public void Cleanup() {}
     public void Bind() {}
     public void Unbind() {}
 

@@ -41,6 +41,18 @@ public class UserInterface {
         }
     }
 
+    public void Update() {
+
+    }
+
+    public void Render() {
+
+    }
+
+    public void Cleanup() {
+
+    }
+
     /**
      * Helper function to set up the run directory with jar resources.
      * TEMPORARY!

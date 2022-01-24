@@ -9,7 +9,7 @@ public class Shaders {
         BaseShader = new Shader("Mesh");
     }
 
-    public void Destroy() {
-        BaseShader.Destroy();
+    public void Cleanup() {
+        BaseShader.Cleanup();
     }
 }

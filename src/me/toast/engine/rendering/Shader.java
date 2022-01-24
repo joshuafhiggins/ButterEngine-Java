@@ -87,7 +87,7 @@ public class Shader {
     }
 
     //Destroy the shader on Shutdown() //TODO: Check if the tutorial is right about destroying shaders
-    public void Destroy() {
+    public void Cleanup() {
         glDeleteProgram(ID);
     }
 }

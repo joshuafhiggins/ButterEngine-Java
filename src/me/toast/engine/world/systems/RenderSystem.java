@@ -12,7 +12,7 @@ public class RenderSystem extends EntitySystem {
     private final EntityListener listener = new EntityListener() {
         @Override public void entityAdded(Entity entity) {}
         @Override public void entityRemoved(Entity entity) {
-            entity.getComponent(RenderComponent.class).mesh.Destroy();
+            entity.getComponent(RenderComponent.class).mesh.Cleanup();
         }
     };
 

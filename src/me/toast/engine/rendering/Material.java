@@ -1,10 +1,8 @@
 package me.toast.engine.rendering;
 
-import me.toast.engine.Main;
 import org.newdawn.slick.opengl.Texture;
 import org.newdawn.slick.opengl.TextureLoader;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
@@ -37,7 +35,7 @@ public class Material {
         glBindTexture(GL_TEXTURE_2D, 0);
     }
 
-    public void Destroy() {
+    public void Cleanup() {
         //Rest of textures should go here
         glDeleteTextures(Albedo.getTextureID());
     }

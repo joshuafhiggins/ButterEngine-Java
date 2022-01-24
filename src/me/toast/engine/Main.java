@@ -18,7 +18,7 @@ public class Main {
 
         loop();
 
-        Mod.LOADED_MOD.Window.Destroy();
+        Mod.LOADED_MOD.Window.Cleanup();
     }
 
     private void loop() {
@@ -33,10 +33,7 @@ public class Main {
             Mod.LOADED_MOD.Window.Update();
         }
 
-        Mod.LOADED_MOD.JBullet.Destroy();
-        Shaders.INSTANCE.Destroy();
-        Materials.INSTANCE.Destroy();
-        Mod.LOADED_MOD.Shutdown();
+        Mod.LOADED_MOD.Cleanup();
     }
 
     public static void main(String[] args) {

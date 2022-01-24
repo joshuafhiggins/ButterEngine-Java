@@ -41,7 +41,7 @@ public class Physics {
         world.removeRigidBody(rigidBody);
     }
 
-    public void Destroy() {
+    public void Cleanup() {
         world.destroy();
     }
 }

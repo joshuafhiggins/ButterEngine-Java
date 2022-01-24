@@ -2,6 +2,8 @@ package me.toast.engine;
 
 import com.badlogic.ashley.core.Engine;
 import me.toast.engine.physics.Physics;
+import me.toast.engine.rendering.Materials;
+import me.toast.engine.rendering.Shaders;
 import me.toast.engine.scene.Camera;
 import me.toast.engine.ui.UserInterface;
 import me.toast.engine.window.Window;
@@ -38,18 +40,24 @@ public class Mod {
         glfwShowWindow(this.Window.ID);
         //Creates our OpenGL Context
         this.Window.Capabilities = GL.createCapabilities();
-
-        Ashley = new Engine();
-        JBullet = new Physics();
-
-        Hashbrown = new UserInterface();
     }
 
     //TODO: Make a proper event system
     //TODO: Make decision on whether super statements should be declared for these
     //The lifecycle of the engine mod
-    public void Init() {} //Initialize texture, models, assets, etc.
+    public void Init() {
+        Ashley = new Engine();
+        JBullet = new Physics();
+        Hashbrown = new UserInterface();
+    } //Initialize systems, texture, models, assets, etc.
         public void Update() {} //Handle Input and then update game logic
         public void Render() {} //Draw Stuff
-    public void Shutdown() {} //De-initialize texture, models, assets, etc.
+    public void Cleanup() {
+        Ashley.removeAllEntities();
+        Ashley.removeAllSystems();
+        JBullet.Cleanup();
+        Hashbrown.Cleanup();
+        Shaders.INSTANCE.Cleanup();
+        Materials.INSTANCE.Cleanup();
+    } //De-initialize systems, texture, models, assets, etc.
 }

@@ -76,13 +76,13 @@ public class Mesh {
             glDisableVertexAttribArray(i);
     }
 
-    public void Destroy() {
+    public void Cleanup() {
         for (BufferObject object : bufferObjects)
-            object.Destroy();
-        IBO.Destroy();
-        VAO.Destroy();
+            object.Cleanup();
+        IBO.Cleanup();
+        VAO.Cleanup();
 
-        shader.Destroy();
-        material.Destroy();
+        shader.Cleanup();
+        material.Cleanup();
     }
 }

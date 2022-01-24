@@ -9,7 +9,7 @@ public class Materials {
         Dragon = new Material("dragon");
     }
 
-    public void Destroy() {
-        Dragon.Destroy();
+    public void Cleanup() {
+        Dragon.Cleanup();
     }
 }

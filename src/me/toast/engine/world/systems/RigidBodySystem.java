@@ -24,7 +24,7 @@ public class RigidBodySystem extends EntitySystem {
             Mod.LOADED_MOD.JBullet.AddRigidBody(entity.getComponent(RigidBodyComponent.class).rigidBody);
         }
         @Override public void entityRemoved(Entity entity) {
-            entity.getComponent(RenderComponent.class).mesh.Destroy();
+            entity.getComponent(RenderComponent.class).mesh.Cleanup();
             Mod.LOADED_MOD.JBullet.RemoveRigidBody(entity.getComponent(RigidBodyComponent.class).rigidBody);
         }
     };

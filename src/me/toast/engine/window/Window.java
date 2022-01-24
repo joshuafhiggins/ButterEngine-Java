@@ -88,7 +88,7 @@ public class Window {
         Delta = getDeltaTime();
     }
     
-    public void Destroy() {
+    public void Cleanup() {
         // Free the window callbacks and destroy the window
         glfwFreeCallbacks(ID);
         glfwDestroyWindow(ID);
