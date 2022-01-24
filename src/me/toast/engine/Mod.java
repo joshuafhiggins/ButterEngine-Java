@@ -41,6 +41,8 @@ public class Mod {
 
         Ashley = new Engine();
         JBullet = new Physics();
+
+        Hashbrown = new UserInterface();
     }
 
     //TODO: Make a proper event system
