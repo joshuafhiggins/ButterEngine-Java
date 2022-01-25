@@ -32,6 +32,8 @@ public class DeathmatchMod extends Mod {
 
     @Override
     public void Init() {
+        super.Init();
+
         mesh = Model.LoadScene("dragon.obj", Shaders.INSTANCE.BaseShader, Materials.INSTANCE.Dragon)[0];
         test = new RenderEntity(new TransformComponent(new Vector3f(0, -5, -15), new Quaternionf(), new Vector3f(1)), new RenderComponent(mesh));
 
@@ -40,8 +42,6 @@ public class DeathmatchMod extends Mod {
 
         Ashley.addSystem(renderSystem);
         Ashley.addSystem(rigidBodySystem);
-
-        super.Init();
     }
 
         @Override
