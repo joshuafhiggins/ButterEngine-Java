@@ -54,16 +54,12 @@ public class DeathmatchMod extends Mod {
             if (Window.InputEvents.isButtonDown(GLFW_MOUSE_BUTTON_RIGHT))
                 Window.InputEvents.SetMouseState(false);
 
-            Mod.LOADED_MOD.JBullet.Update();
-
-            Ashley.update(Window.Delta);
-
-            super.Update();
+            super.Update(); //Update Ashley which renders our world
         }
 
-    @Override
+        @Override
         public void Render() {
-            super.Render();
+            super.Render(); //Render UI
         }
 
     @Override

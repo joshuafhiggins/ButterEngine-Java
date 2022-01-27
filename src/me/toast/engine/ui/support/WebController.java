@@ -23,6 +23,7 @@ import com.labymedia.ultralight.*;
 import com.labymedia.ultralight.config.*;
 import com.labymedia.ultralight.gpu.*;
 import com.labymedia.ultralight.javascript.*;
+import me.toast.engine.Mod;
 import me.toast.engine.ui.input.*;
 import me.toast.engine.ui.listener.*;
 import org.lwjgl.glfw.GLFW;
@@ -77,7 +78,7 @@ public class WebController {
         this.renderer = UltralightRenderer.create();
         this.renderer.logMemoryUsage();
 
-        this.view = renderer.createView(300, 300,
+        this.view = renderer.createView(Mod.LOADED_MOD.Window.Width, Mod.LOADED_MOD.Window.Height,
                 new UltralightViewConfig()
                         .isAccelerated(true)
                         .initialDeviceScale(1.0)

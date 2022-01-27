@@ -14,10 +14,12 @@ public class Input {
     public double scrollX, scrollY;
 
     public GLFWKeyCallback KeyboardCallback;
+    public GLFWCharCallback CharCallback;
     public GLFWCursorPosCallback MouseMoveCallback;
     public GLFWMouseButtonCallback MouseButtonsCallback;
     public GLFWScrollCallback MouseScrollCallback;
     public GLFWWindowSizeCallback WindowResizeCallback;
+    public GLFWWindowFocusCallback WindowFocusCallback;
 
     public Input() {
         KeyboardCallback = new GLFWKeyCallback() {
@@ -55,7 +57,24 @@ public class Input {
                     glViewport(0, 0, width, height);
                     Mod.LOADED_MOD.Camera
                             .setProjection((float) Math.toRadians(45f), (float) width/ (float) height, 0.1f, 1000f);
+                    if (Mod.LOADED_MOD.Ultralight != null) {
+                        Mod.LOADED_MOD.Ultralight.webController.resize(width, height);
+                    }
                 }
+            }
+        };
+
+        CharCallback = new GLFWCharCallback() {
+            @Override
+            public void invoke(long window, int codepoint) {
+
+            }
+        };
+
+        WindowFocusCallback = new GLFWWindowFocusCallback() {
+            @Override
+            public void invoke(long window, boolean focused) {
+
             }
         };
     }

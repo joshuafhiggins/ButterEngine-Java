@@ -18,8 +18,6 @@ public class Window {
     public int Width, Height;
     public Input InputEvents;
     public GLCapabilities Capabilities;
-
-    public long lastTime;
     public int Delta;
     
     public Window(int width, int height) {
@@ -61,8 +59,6 @@ public class Window {
         glfwMakeContextCurrent(ID);
         // Enable v-sync
         glfwSwapInterval(1);
-
-        lastTime = System.nanoTime();
     }
     
     private void SetCallbacks() {
@@ -73,19 +69,6 @@ public class Window {
         glfwSetScrollCallback(ID, InputEvents.MouseScrollCallback);
 
         glfwSetWindowSizeCallback(ID, InputEvents.WindowResizeCallback);
-    }
-
-    private int getDeltaTime() {
-        long currentTime = System.nanoTime();
-        int delta = (int)(currentTime - lastTime);
-        lastTime = System.nanoTime();
-        return delta;
-    }
-
-    public void Update() {
-        glfwSwapBuffers(ID); // swap the color buffers
-        glfwPollEvents(); // Poll for window events. The key callback above will only be invoked during this call.
-        Delta = getDeltaTime();
     }
     
     public void Cleanup() {

@@ -25,7 +25,7 @@ public class Mod {
 
     public Engine Ashley;
     public Physics JBullet;
-    public UserInterface Hashbrown;
+    public UserInterface Ultralight;
 
     public Mod(String id, String name, String description, String author, int width, int height) {
         LOADED_MOD = this;
@@ -48,15 +48,21 @@ public class Mod {
     public void Init() {
         Ashley = new Engine();
         JBullet = new Physics();
-        Hashbrown = new UserInterface();
+        Ultralight = new UserInterface(Window);
     } //Initialize systems, texture, models, assets, etc.
-        public void Update() {} //Handle Input and then update game logic
-        public void Render() {} //Draw Stuff
+        public void Update() {
+            JBullet.Update();
+            Ashley.update(Window.Delta);
+            Ultralight.Update();
+        } //Handle Input and then update game logic
+        public void Render() {
+            Ultralight.Render();
+        } //Draw Stuff
     public void Cleanup() {
         Ashley.removeAllEntities();
         Ashley.removeAllSystems();
         JBullet.Cleanup();
-        Hashbrown.Cleanup();
+        Ultralight.Cleanup();
         Shaders.INSTANCE.Cleanup();
         Materials.INSTANCE.Cleanup();
     } //De-initialize systems, texture, models, assets, etc.
