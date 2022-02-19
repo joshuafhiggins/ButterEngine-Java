@@ -1,42 +1,30 @@
 package me.toast.engine.rendering;
 
-import org.newdawn.slick.opengl.Texture;
-import org.newdawn.slick.opengl.TextureLoader;
+import me.toast.engine.AssetPool;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-
-import static org.lwjgl.opengl.GL30.*;
+import static org.lwjgl.opengl.GL33.*;
 
 //TODO: Make binding support multiple textures
 public class Material {
 
-    //Rest of textures should go here
     public Texture Albedo;
 
     //TODO: Load from material file
     public Material(String name) {
-        try {
-            Albedo = TextureLoader.getTexture(".png",
-                    new FileInputStream("resources/assets/textures/" + name + "_Albedo.png"),
-                    GL_NEAREST);
-        } catch (IOException e) {
-            System.err.println("Can't find file at: " + "resources/assets/textures/" + name + "_Albedo.png");
-        }
+        Albedo = AssetPool.getTexture(name + "_Albedo");
     }
 
     public void Bind() {
         glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_2D, Albedo.getTextureID());
+        Albedo.Bind();
     }
 
     public void Unbind() {
         glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_2D, 0);
+        Albedo.Unbind();
     }
 
     public void Cleanup() {
-        //Rest of textures should go here
-        glDeleteTextures(Albedo.getTextureID());
+        AssetPool.Cleanup(Albedo);
     }
 }

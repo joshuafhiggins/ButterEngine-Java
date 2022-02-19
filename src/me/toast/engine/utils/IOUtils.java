@@ -1,29 +1,14 @@
 package me.toast.engine.utils;
 
-import me.toast.engine.Main;
-import org.lwjgl.BufferUtils;
-
 import java.io.*;
 import java.net.URL;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
+import java.util.Objects;
 
-public class FileUtils {
+import org.lwjgl.BufferUtils;
 
-    public static String loadAsString(String path) {
-        StringBuilder result = new StringBuilder();
-
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(Main.class.getResourceAsStream(path)))) {
-            String line = "";
-            while ((line = reader.readLine()) != null) {
-                result.append(line).append("\n");
-            }
-        } catch (IOException e) {
-            System.err.println("Couldn't find the file at " + path);
-        }
-
-        return result.toString();
-    }
+public class IOUtils {
 
     private static ByteBuffer resizeBuffer(ByteBuffer buffer, int newCapacity) {
         ByteBuffer newBuffer = BufferUtils.createByteBuffer(newCapacity);
@@ -65,5 +50,20 @@ public class FileUtils {
             }
         }
         return buffer;
+    }
+
+    public static String loadAsString(String path) {
+        StringBuilder result = new StringBuilder();
+
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(Objects.requireNonNull(IOUtils.class.getResourceAsStream(path))))) {
+            String line = "";
+            while ((line = reader.readLine()) != null) {
+                result.append(line).append("\n");
+            }
+        } catch (IOException e) {
+            System.err.println("Couldn't find the file at " + path);
+        }
+
+        return result.toString();
     }
 }

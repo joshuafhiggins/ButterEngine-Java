@@ -1,5 +1,6 @@
 package me.toast.engine.rendering;
 
+import me.toast.engine.AssetPool;
 import me.toast.engine.world.components.TransformComponent;
 import me.toast.engine.scene.Camera;
 
@@ -82,7 +83,7 @@ public class Mesh {
         IBO.Cleanup();
         VAO.Cleanup();
 
-        shader.Cleanup();
-        material.Cleanup();
+        AssetPool.Cleanup(shader);
+        AssetPool.Cleanup(material);
     }
 }

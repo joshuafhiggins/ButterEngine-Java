@@ -7,7 +7,7 @@ import java.nio.IntBuffer;
 
 import static org.lwjgl.opengl.GL33.*;
 
-public class BufferObject {
+public abstract class BufferObject {
 
     public int ID;
 
@@ -66,9 +66,9 @@ public class BufferObject {
     }
 
     //For overrides
-    public void Cleanup() {}
-    public void Bind() {}
-    public void Unbind() {}
+    public abstract void Cleanup();
+    public abstract void Bind();
+    public abstract void Unbind();
 
     public float[] getPositionData(Vertex[] vertices) {
         float[] positionData = new float[vertices.length * 3];

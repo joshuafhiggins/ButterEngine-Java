@@ -1,6 +1,5 @@
 package me.toast.engine.rendering;
 
-import me.toast.engine.utils.FileUtils;
 import org.joml.Matrix4f;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
@@ -9,14 +8,15 @@ import org.lwjgl.system.MemoryUtil;
 import java.nio.FloatBuffer;
 
 import static org.lwjgl.opengl.GL30.*;
+import static me.toast.engine.utils.IOUtils.*;
 
 public class Shader {
 
     public int ID;
 
     public Shader(String name) {
-        String vertexFile = FileUtils.loadAsString("/assets/shaders/" + name + ".vert");
-        String fragmentFile = FileUtils.loadAsString("/assets/shaders/" + name + ".frag");
+        String vertexFile = loadAsString("/assets/shaders/" + name + ".vert");
+        String fragmentFile = loadAsString("/assets/shaders/" + name + ".frag");
 
         ID = glCreateProgram();
 
@@ -76,17 +76,12 @@ public class Shader {
         glUniformMatrix4fv(getUniformLocation(name), true, buffer);
     }
     
-    //Bind the shader for the mesh to use
     public void Bind() {
         glUseProgram(ID);
     }
-
-    //Unbind for good practice
     public void Unbind() {
         glUseProgram(0);
     }
-
-    //Destroy the shader on Shutdown() //TODO: Check if the tutorial is right about destroying shaders
     public void Cleanup() {
         glDeleteProgram(ID);
     }

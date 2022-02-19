@@ -21,12 +21,12 @@ public class RigidBodySystem extends EntitySystem {
 
     private final EntityListener listener = new EntityListener() {
         @Override public void entityAdded(Entity entity) {
-            Mod.LOADED_MOD.JBullet.AddRigidBody(entity.getComponent(RigidBodyComponent.class).rigidBody);
+            Mod.JBullet.AddRigidBody(entity.getComponent(RigidBodyComponent.class).rigidBody);
         }
         @Override public void entityRemoved(Entity entity) {
             if (entity.getComponent(RenderComponent.class) != null && entity.getComponent(RigidBodyComponent.class) != null) {
                 entity.getComponent(RenderComponent.class).mesh.Cleanup();
-                Mod.LOADED_MOD.JBullet.RemoveRigidBody(entity.getComponent(RigidBodyComponent.class).rigidBody);
+                Mod.JBullet.RemoveRigidBody(entity.getComponent(RigidBodyComponent.class).rigidBody);
             }
         }
     };

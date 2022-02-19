@@ -9,6 +9,7 @@ import java.nio.IntBuffer;
 
 import static org.lwjgl.glfw.Callbacks.glfwFreeCallbacks;
 import static org.lwjgl.glfw.GLFW.*;
+import static org.lwjgl.opengl.GL11.glClearColor;
 import static org.lwjgl.system.MemoryStack.stackPush;
 import static org.lwjgl.system.MemoryUtil.NULL;
 
@@ -64,6 +65,16 @@ public class Window {
 
         InputEvents = new Input();
         SetCallbacks();
+
+        glClearColor(0.0f, 0.0f, 0.0f, 0.0f); // Set the clear color
+    }
+
+    public long Update(long lastTime) {
+        long currentTime = System.nanoTime();
+        Delta = (int)(currentTime - lastTime);
+        glfwSwapBuffers(Mod.Window.ID); // swap the color buffers
+
+        return System.nanoTime();
     }
     
     private void SetCallbacks() {

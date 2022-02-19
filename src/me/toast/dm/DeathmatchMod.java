@@ -1,5 +1,6 @@
 package me.toast.dm;
 
+import me.toast.engine.AssetPool;
 import me.toast.engine.Mod;
 import me.toast.engine.rendering.*;
 import me.toast.engine.scene.Camera;
@@ -26,12 +27,12 @@ public class DeathmatchMod extends Mod {
         super("DMTest",
                 "Deathmatch Mod",
                 "Simple multiplayer deathmatch test in ButterEngine. Use this as an example.",
-                "LitlToast", 1280, 720);
+                "LitlToast");
     }
 
     @Override
     public void M_Init() {
-        mesh = Model.LoadScene("dragon.obj", Shaders.INSTANCE.BaseShader, Materials.INSTANCE.Dragon)[0];
+        mesh = Model.LoadScene("dragon.obj", AssetPool.getShader("Mesh"), AssetPool.getMaterial("dragon"))[0];
         test = new RenderEntity(new TransformComponent(new Vector3f(0, -5, -15), new Quaternionf(), new Vector3f(1)), new RenderComponent(mesh));
 
         Camera = new Camera(new Vector3f(), new Quaternionf());

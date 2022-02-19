@@ -2,45 +2,38 @@ package me.toast.engine;
 
 import com.badlogic.ashley.core.Engine;
 import me.toast.engine.physics.Physics;
-import me.toast.engine.rendering.Materials;
-import me.toast.engine.rendering.Shaders;
 import me.toast.engine.scene.Camera;
 import me.toast.engine.ui.UserInterface;
 import me.toast.engine.window.Window;
-import org.lwjgl.opengl.GL;
 
-import static org.lwjgl.glfw.GLFW.glfwShowWindow;
-
-//TODO: Try to make a distinction between the engine and a mod
-public abstract class Mod implements IMod {
+public abstract class Mod {
 
     public static Mod LOADED_MOD;
 
     //We'll use this info later in the mod loading
     public String ID, NAME, DESCRIPTION, AUTHOR;
 
-    //TODO: Naming conventions for mods
-    public Window Window;
+    public static Window Window;
+    public static Engine Ashley;
+    public static Physics JBullet;
+    public static UserInterface Ultralight;
+
     public Camera Camera;
 
-    public Engine Ashley;
-    public Physics JBullet;
-    public UserInterface Ultralight;
-
-    public Mod(String id, String name, String description, String author, int width, int height) {
+    public Mod(String id, String name, String description, String author) {
         this.ID = id;
         this.NAME = name;
         this.DESCRIPTION = description;
         this.AUTHOR = author;
-        this.Window = new Window(width, height);
 
         LOADED_MOD = this;
     }
 
-    //TODO: Make a proper event system
-    //TODO: Make decision on whether super statements should be declared for these
+    //TODO: Make an event system
+
     //The lifecycle of the engine mod
     public void Init() {
+        Window = new Window(1280, 720);
         Ashley = new Engine();
         JBullet = new Physics();
         //Ultralight = new UserInterface(Window);
@@ -67,14 +60,13 @@ public abstract class Mod implements IMod {
         Ashley.removeAllSystems();
         JBullet.Cleanup();
         //Ultralight.Cleanup();
-        Shaders.INSTANCE.Cleanup();
-        Materials.INSTANCE.Cleanup();
+        AssetPool.CleanupAll();
 
         M_Cleanup();
-    } //De-initialize systems, texture, models, assets, etc.
+    } //Destroy systems, texture, models, assets, etc.
 
-    @Override public abstract void M_Init();
-    @Override public abstract void M_Update();
-    @Override public abstract void M_Render();
-    @Override public abstract void M_Cleanup();
+    public abstract void M_Init();
+    public abstract void M_Update();
+    public abstract void M_Render();
+    public abstract void M_Cleanup();
 }
