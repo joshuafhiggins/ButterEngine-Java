@@ -39,9 +39,6 @@ public class Window {
         if (ID == NULL)
             throw new RuntimeException("Failed to create the GLFW window");
 
-        InputEvents = new Input();
-        SetCallbacks();
-
         //This logic handles centering the window in the middle of the main monitor
         try ( MemoryStack stack = stackPush() ) {
             IntBuffer pWidth = stack.mallocInt(1); //int pointer
@@ -59,6 +56,14 @@ public class Window {
         glfwMakeContextCurrent(ID);
         // Enable v-sync
         glfwSwapInterval(1);
+
+        // Make the window visible
+        glfwShowWindow(ID);
+        //Creates our OpenGL Context
+        Capabilities = GL.createCapabilities();
+
+        InputEvents = new Input();
+        SetCallbacks();
     }
     
     private void SetCallbacks() {

@@ -1,4 +1,4 @@
-package test.game;
+package me.toast.dm;
 
 import me.toast.engine.Mod;
 import me.toast.engine.rendering.*;
@@ -22,18 +22,15 @@ public class DeathmatchMod extends Mod {
     RenderSystem renderSystem = new RenderSystem();
     RigidBodySystem rigidBodySystem = new RigidBodySystem();
 
-    public DeathmatchMod(int width, int height) {
+    public DeathmatchMod() {
         super("DMTest",
                 "Deathmatch Mod",
                 "Simple multiplayer deathmatch test in ButterEngine. Use this as an example.",
-                "LitlToast",
-                width, height);
+                "LitlToast", 1280, 720);
     }
 
     @Override
-    public void Init() {
-        super.Init();
-
+    public void M_Init() {
         mesh = Model.LoadScene("dragon.obj", Shaders.INSTANCE.BaseShader, Materials.INSTANCE.Dragon)[0];
         test = new RenderEntity(new TransformComponent(new Vector3f(0, -5, -15), new Quaternionf(), new Vector3f(1)), new RenderComponent(mesh));
 
@@ -45,7 +42,7 @@ public class DeathmatchMod extends Mod {
     }
 
         @Override
-        public void Update() {
+        public void M_Update() {
             if (Window.InputEvents.isKeyDown(GLFW_KEY_ESCAPE))
                 glfwSetWindowShouldClose(Window.ID, true);
 
@@ -53,18 +50,11 @@ public class DeathmatchMod extends Mod {
                 Window.InputEvents.SetMouseState(true);
             if (Window.InputEvents.isButtonDown(GLFW_MOUSE_BUTTON_RIGHT))
                 Window.InputEvents.SetMouseState(false);
-
-            super.Update(); //Update Ashley which renders our world
         }
 
         @Override
-        public void Render() {
-            super.Render(); //Render UI
-        }
+        public void M_Render() {}
 
     @Override
-    public void Cleanup() {
-        super.Cleanup();
-        //More cleaning
-    }
+    public void M_Cleanup() {}
 }

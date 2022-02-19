@@ -1,9 +1,5 @@
 package me.toast.engine;
 
-import me.toast.engine.rendering.Materials;
-import me.toast.engine.rendering.Shaders;
-import test.game.DeathmatchMod;
-
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
 
@@ -13,7 +9,10 @@ public class Main {
 
     public void run() {
         System.setProperty("imgui.library.path", "./libs");
-        new DeathmatchMod(1280, 720);
+        //new DeathmatchMod();
+
+        Reflections reflections = new Reflections("com.mycompany");
+        Set<Class<? extends MyInterface>> classes = reflections.getSubTypesOf(MyInterface.class);
 
         Mod.LOADED_MOD.Init();
         lastTime = System.nanoTime();

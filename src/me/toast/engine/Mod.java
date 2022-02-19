@@ -12,7 +12,7 @@ import org.lwjgl.opengl.GL;
 import static org.lwjgl.glfw.GLFW.glfwShowWindow;
 
 //TODO: Try to make a distinction between the engine and a mod
-public class Mod {
+public abstract class Mod implements IMod {
 
     public static Mod LOADED_MOD;
 
@@ -28,18 +28,13 @@ public class Mod {
     public UserInterface Ultralight;
 
     public Mod(String id, String name, String description, String author, int width, int height) {
-        LOADED_MOD = this;
-
         this.ID = id;
         this.NAME = name;
         this.DESCRIPTION = description;
         this.AUTHOR = author;
-
         this.Window = new Window(width, height);
-        // Make the window visible
-        glfwShowWindow(this.Window.ID);
-        //Creates our OpenGL Context
-        this.Window.Capabilities = GL.createCapabilities();
+
+        LOADED_MOD = this;
     }
 
     //TODO: Make a proper event system
@@ -48,22 +43,38 @@ public class Mod {
     public void Init() {
         Ashley = new Engine();
         JBullet = new Physics();
-        Ultralight = new UserInterface(Window);
+        //Ultralight = new UserInterface(Window);
+
+        M_Init();
     } //Initialize systems, texture, models, assets, etc.
-        public void Update() {
-            JBullet.Update();
-            Ashley.update(Window.Delta);
-            Ultralight.Update();
-        } //Handle Input and then update game logic
-        public void Render() {
-            Ultralight.Render();
-        } //Draw Stuff
+
+    public void Update() {
+        JBullet.Update();
+        Ashley.update(Window.Delta);
+        //Ultralight.Update();
+
+        M_Update();
+    } //Handle Input and then update game logic
+
+    public void Render() {
+        //Ultralight.Render();
+
+        M_Render();
+    } //Draw Stuff
+
     public void Cleanup() {
         Ashley.removeAllEntities();
         Ashley.removeAllSystems();
         JBullet.Cleanup();
-        Ultralight.Cleanup();
+        //Ultralight.Cleanup();
         Shaders.INSTANCE.Cleanup();
         Materials.INSTANCE.Cleanup();
+
+        M_Cleanup();
     } //De-initialize systems, texture, models, assets, etc.
+
+    @Override public abstract void M_Init();
+    @Override public abstract void M_Update();
+    @Override public abstract void M_Render();
+    @Override public abstract void M_Cleanup();
 }
