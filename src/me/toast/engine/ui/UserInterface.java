@@ -3,7 +3,6 @@ package me.toast.engine.ui;
 import com.labymedia.ultralight.*;
 import com.labymedia.ultralight.gpu.*;
 import com.labymedia.ultralight.os.OperatingSystem;
-import me.toast.engine.Main;
 import me.toast.engine.ui.input.*;
 import me.toast.engine.ui.support.*;
 import me.toast.engine.window.Input;
@@ -149,19 +148,19 @@ public class UserInterface {
     public static void extractResources() {
         try {
             Files.copy(
-                    Main.class.getResourceAsStream("/example.html"),
+                    UserInterface.class.getResourceAsStream("/example.html"),
                     Paths.get("./example.html"),
                     StandardCopyOption.REPLACE_EXISTING
             );
 
             Files.copy(
-                    Main.class.getResourceAsStream("/example.js"),
+                    UserInterface.class.getResourceAsStream("/example.js"),
                     Paths.get("./example.js"),
                     StandardCopyOption.REPLACE_EXISTING
             );
 
             Files.copy(
-                    Main.class.getResourceAsStream("/style.css"),
+                    UserInterface.class.getResourceAsStream("/style.css"),
                     Paths.get("./style.css"),
                     StandardCopyOption.REPLACE_EXISTING
             );
