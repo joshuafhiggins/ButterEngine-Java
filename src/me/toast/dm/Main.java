@@ -1,6 +1,7 @@
-package me.toast.engine;
+package me.toast.dm;
 
 import me.toast.dm.DeathmatchMod;
+import me.toast.engine.Mod;
 import me.toast.engine.utils.Time;
 
 public class Main {
