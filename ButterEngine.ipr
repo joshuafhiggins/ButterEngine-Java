@@ -231,63 +231,6 @@
     <mapping directory="" vcs="Git" />
   </component>
   <component name="libraryTable">
-    <library name="badlogicgames.ashley" type="repository">
-      <properties maven-id="com.badlogicgames.ashley:ashley:1.7.4" />
-      <CLASSES>
-        <root url="jar://$PROJECT_DIR$/lib/ashley-1.7.4.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/gdx-1.9.9.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$PROJECT_DIR$/lib/ashley-1.7.4-javadoc.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/gdx-1.9.9-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$PROJECT_DIR$/lib/ashley-1.7.4-sources.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/gdx-1.9.9-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="labymedia.ultralight.java.base" type="repository">
-      <properties maven-id="com.labymedia:ultralight-java-base:0.4.12" />
-      <CLASSES>
-        <root url="jar://$PROJECT_DIR$/lib/ultralight-java-base-0.4.12.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$PROJECT_DIR$/lib/ultralight-java-base-0.4.12-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$PROJECT_DIR$/lib/ultralight-java-base-0.4.12-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="labymedia.ultralight.java.databind" type="repository">
-      <properties maven-id="com.labymedia:ultralight-java-databind:0.4.12" />
-      <CLASSES>
-        <root url="jar://$PROJECT_DIR$/lib/ultralight-java-databind-0.4.12.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/ultralight-java-base-0.4.12.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$PROJECT_DIR$/lib/ultralight-java-databind-0.4.12-javadoc.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/ultralight-java-base-0.4.12-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$PROJECT_DIR$/lib/ultralight-java-databind-0.4.12-sources.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/ultralight-java-base-0.4.12-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="labymedia.ultralight.java.gpu" type="repository">
-      <properties maven-id="com.labymedia:ultralight-java-gpu:0.4.12" />
-      <CLASSES>
-        <root url="jar://$PROJECT_DIR$/lib/ultralight-java-gpu-0.4.12.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/ultralight-java-base-0.4.12.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$PROJECT_DIR$/lib/ultralight-java-gpu-0.4.12-javadoc.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/ultralight-java-base-0.4.12-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$PROJECT_DIR$/lib/ultralight-java-gpu-0.4.12-sources.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/ultralight-java-base-0.4.12-sources.jar!/" />
-      </SOURCES>
-    </library>
     <library name="lib">
       <CLASSES>
         <root url="file://$PROJECT_DIR$/lib" />

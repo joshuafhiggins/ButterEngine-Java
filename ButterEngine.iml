@@ -9,9 +9,5 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="lib" level="project" />
-    <orderEntry type="library" name="badlogicgames.ashley" level="project" />
-    <orderEntry type="library" name="labymedia.ultralight.java.gpu" level="project" />
-    <orderEntry type="library" name="labymedia.ultralight.java.base" level="project" />
-    <orderEntry type="library" name="labymedia.ultralight.java.databind" level="project" />
   </component>
 </module>
