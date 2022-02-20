@@ -2,7 +2,7 @@ package me.toast.engine.world.systems;
 
 import com.badlogic.ashley.core.*;
 import com.badlogic.ashley.utils.ImmutableArray;
-import me.toast.engine.world.components.RenderComponent;
+import me.toast.engine.world.components.MeshComponent;
 import me.toast.engine.world.components.TransformComponent;
 import me.toast.engine.world.entities.Dragon;
 
@@ -12,7 +12,7 @@ public class DragonSystem extends EntitySystem {
     private final ComponentMapper<TransformComponent> tm = ComponentMapper.getFor(TransformComponent.class);
 
     public void addedToEngine(Engine engine) {
-        entities = engine.getEntitiesFor(Family.all(TransformComponent.class, RenderComponent.class).get());
+        entities = engine.getEntitiesFor(Family.all(TransformComponent.class, MeshComponent.class).get());
     }
 
     public void update(float deltaTime) {
