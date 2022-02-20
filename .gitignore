@@ -38,3 +38,6 @@ bin/libultralight-java-gpu.dylib
 ./example.js
 ./style.css
 ./counter.txt
+
+.gradle/
+build/
