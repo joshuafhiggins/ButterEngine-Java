@@ -3,15 +3,16 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/resources" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
+      <excludeFolder url="file://$MODULE_DIR$/.gradle" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="libs" level="project" />
+    <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="library" name="badlogicgames.ashley" level="project" />
+    <orderEntry type="library" name="labymedia.ultralight.java.gpu" level="project" />
     <orderEntry type="library" name="labymedia.ultralight.java.base" level="project" />
     <orderEntry type="library" name="labymedia.ultralight.java.databind" level="project" />
-    <orderEntry type="library" name="labymedia.ultralight.java.gpu" level="project" />
-    <orderEntry type="library" name="badlogicgames.ashley" level="project" />
   </component>
 </module>

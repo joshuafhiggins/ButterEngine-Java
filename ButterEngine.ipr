@@ -224,7 +224,7 @@
       <module fileurl="file://$PROJECT_DIR$/ButterEngine.iml" filepath="$PROJECT_DIR$/ButterEngine.iml" />
     </modules>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" default="true" project-jdk-name="adopt-openjdk-16" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
   <component name="VcsDirectoryMappings">
@@ -234,70 +234,73 @@
     <library name="badlogicgames.ashley" type="repository">
       <properties maven-id="com.badlogicgames.ashley:ashley:1.7.4" />
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/libs/ashley-1.7.4.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/gdx-1.9.9.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/ashley-1.7.4.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/gdx-1.9.9.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$PROJECT_DIR$/libs/ashley-1.7.4-javadoc.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/gdx-1.9.9-javadoc.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/ashley-1.7.4-javadoc.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/gdx-1.9.9-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$PROJECT_DIR$/libs/ashley-1.7.4-sources.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/gdx-1.9.9-sources.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/ashley-1.7.4-sources.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/gdx-1.9.9-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="labymedia.ultralight.java.base" type="repository">
       <properties maven-id="com.labymedia:ultralight-java-base:0.4.12" />
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/libs/ultralight-java-base-0.4.12.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/ultralight-java-base-0.4.12.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$PROJECT_DIR$/libs/ultralight-java-base-0.4.12-javadoc.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/ultralight-java-base-0.4.12-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$PROJECT_DIR$/libs/ultralight-java-base-0.4.12-sources.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/ultralight-java-base-0.4.12-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="labymedia.ultralight.java.databind" type="repository">
       <properties maven-id="com.labymedia:ultralight-java-databind:0.4.12" />
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/libs/ultralight-java-databind-0.4.12.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/ultralight-java-base-0.4.12.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/ultralight-java-databind-0.4.12.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/ultralight-java-base-0.4.12.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$PROJECT_DIR$/libs/ultralight-java-databind-0.4.12-javadoc.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/ultralight-java-base-0.4.12-javadoc.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/ultralight-java-databind-0.4.12-javadoc.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/ultralight-java-base-0.4.12-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$PROJECT_DIR$/libs/ultralight-java-databind-0.4.12-sources.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/ultralight-java-base-0.4.12-sources.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/ultralight-java-databind-0.4.12-sources.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/ultralight-java-base-0.4.12-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="labymedia.ultralight.java.gpu" type="repository">
       <properties maven-id="com.labymedia:ultralight-java-gpu:0.4.12" />
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/libs/ultralight-java-gpu-0.4.12.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/ultralight-java-base-0.4.12.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/ultralight-java-gpu-0.4.12.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/ultralight-java-base-0.4.12.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$PROJECT_DIR$/libs/ultralight-java-gpu-0.4.12-javadoc.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/ultralight-java-base-0.4.12-javadoc.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/ultralight-java-gpu-0.4.12-javadoc.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/ultralight-java-base-0.4.12-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$PROJECT_DIR$/libs/ultralight-java-gpu-0.4.12-sources.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/ultralight-java-base-0.4.12-sources.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/ultralight-java-gpu-0.4.12-sources.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/ultralight-java-base-0.4.12-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="libs">
+    <library name="lib">
       <CLASSES>
-        <root url="file://$PROJECT_DIR$/libs" />
+        <root url="file://$PROJECT_DIR$/lib" />
       </CLASSES>
       <JAVADOC />
+      <NATIVE>
+        <root url="file://$PROJECT_DIR$/lib" />
+      </NATIVE>
       <SOURCES>
-        <root url="file://$PROJECT_DIR$/libs" />
+        <root url="file://$PROJECT_DIR$/lib" />
       </SOURCES>
-      <jarDirectory url="file://$PROJECT_DIR$/libs" recursive="false" />
-      <jarDirectory url="file://$PROJECT_DIR$/libs" recursive="false" type="SOURCES" />
+      <jarDirectory url="file://$PROJECT_DIR$/lib" recursive="false" />
+      <jarDirectory url="file://$PROJECT_DIR$/lib" recursive="false" type="SOURCES" />
     </library>
   </component>
 </project>

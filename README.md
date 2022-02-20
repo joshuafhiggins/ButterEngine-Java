@@ -57,4 +57,4 @@ Butter Engine is a game engine made in LWJGL and uses its subset libraries for v
    - [ ] Steam Audio
 
 Butter Engine is under the MIT License, check the [license](https://github.com/higgy999/ButterEngine/blob/main/LICENSE.md) for more details.
-The libraries Butter Engine uses fall under their own respective licenses which are found in the lib folder
+The libraries Butter Engine uses fall under their own respective licenses.

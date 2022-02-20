@@ -34,7 +34,7 @@ bin/libultralight-java-gpu.dylib
 
 # File-based project format
 *.iws
-example.html
-example.js
-style.css
-counter.txt
+./example.html
+./example.js
+./style.css
+./counter.txt
