@@ -1,17 +1,60 @@
 package me.toast.engine.rendering;
 
-import org.joml.*;
+import org.joml.Vector2f;
+import org.joml.Vector3f;
 import org.lwjgl.assimp.*;
 
+import java.io.IOException;
+import java.nio.ByteBuffer;
+
+import static me.toast.engine.util.IOUtils.ioResourceToByteBuffer;
 import static org.lwjgl.assimp.Assimp.*;
+import static org.lwjgl.system.MemoryUtil.*;
 
 public class Model {
+
+    static AIFileIO fileIo = AIFileIO.create()
+            .OpenProc((pFileIO, fileName, openMode) -> {
+                ByteBuffer data;
+                String fileNameUtf8 = memUTF8(fileName);
+                try {
+                    data = ioResourceToByteBuffer(fileNameUtf8, 8192);
+                } catch (IOException e) {
+                    throw new RuntimeException("Could not open file: " + fileNameUtf8);
+                }
+
+                return AIFile.create()
+                        .ReadProc((pFile, pBuffer, size, count) -> {
+                            long max = Math.min(data.remaining(), size * count);
+                            memCopy(memAddress(data) + data.position(), pBuffer, max);
+                            return max;
+                        })
+                        .SeekProc((pFile, offset, origin) -> {
+                            if (origin == Assimp.aiOrigin_CUR) {
+                                data.position(data.position() + (int) offset);
+                            } else if (origin == Assimp.aiOrigin_SET) {
+                                data.position((int) offset);
+                            } else if (origin == Assimp.aiOrigin_END) {
+                                data.position(data.limit() + (int) offset);
+                            }
+                            return 0;
+                        })
+                        .FileSizeProc(pFile -> data.limit())
+                        .address();
+            })
+            .CloseProc((pFileIO, pFile) -> {
+                AIFile aiFile = AIFile.create(pFile);
+
+                aiFile.ReadProc().free();
+                aiFile.SeekProc().free();
+                aiFile.FileSizeProc().free();
+            });
 
     //TODO: Make a Models class for static referencing
     //NOTE: name needs to have the filetype as well
     public static Mesh[] LoadScene(String name, Shader shader, Material material) {
-        AIScene scene = aiImportFile("resources/assets/models/" + name,
-                aiProcess_JoinIdenticalVertices | aiProcess_Triangulate | aiProcess_FixInfacingNormals);
+        AIScene scene = aiImportFileEx("assets/models/" + name,
+                aiProcess_JoinIdenticalVertices | aiProcess_Triangulate | aiProcess_FixInfacingNormals, fileIo);
 
         if (scene == null) System.err.println("Couldn't load model at: " + "assets/models/" + name);
         assert scene != null;
@@ -62,29 +105,5 @@ public class Model {
         }
 
         return internal;
-    }
-
-    public static Vertex[] LoadPhysicsModel(String name) {
-        AIScene scene = aiImportFile("resources/assets/models/" + name,
-                aiProcess_JoinIdenticalVertices | aiProcess_Triangulate | aiProcess_FixInfacingNormals);
-        //TODO: Figure out if Bullet handles indices or not
-
-        if (scene == null) System.err.println("Couldn't load model at: " + "assets/models/" + name);
-        assert scene != null;
-
-        AIMesh mesh = AIMesh.create(scene.mMeshes().get(0));
-        int vertexCount = mesh.mNumVertices();
-
-        AIVector3D.Buffer vertices = mesh.mVertices();
-
-        Vertex[] vertexList = new Vertex[vertexCount];
-        for (int j = 0; j < vertexCount; j++) {
-            AIVector3D vertex = vertices.get(j);
-            Vector3f meshVertex = new Vector3f(vertex.x(), vertex.y(), vertex.z());
-
-            vertexList[j] = new Vertex(meshVertex);
-        }
-
-        return vertexList;
     }
 }
