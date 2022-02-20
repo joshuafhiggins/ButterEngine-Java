@@ -57,6 +57,8 @@ public class Window {
         glfwMakeContextCurrent(ID);
         // Enable v-sync
         glfwSwapInterval(1);
+        //Desired FPS
+        //glfwSwapInterval(144);
 
         // Make the window visible
         glfwShowWindow(ID);
@@ -69,12 +71,14 @@ public class Window {
         glClearColor(0.0f, 0.0f, 0.0f, 0.0f); // Set the clear color
     }
 
-    public long Update(long lastTime) {
-        long currentTime = System.nanoTime();
-        Delta = (int)(currentTime - lastTime);
-        glfwSwapBuffers(Mod.Window.ID); // swap the color buffers
+    long lastTime = System.nanoTime();
+    public void Update() {
+        glfwSwapBuffers(Mod.Window.ID); // swap the frame buffers
 
-        return System.nanoTime();
+        //Update Delta
+        long time = System.nanoTime();
+        Delta = (int) ((time - lastTime) / 1000000);
+        lastTime = time;
     }
     
     private void SetCallbacks() {

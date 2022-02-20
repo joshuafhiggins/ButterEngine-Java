@@ -8,7 +8,6 @@ import me.toast.engine.world.components.RenderComponent;
 import me.toast.engine.world.components.TransformComponent;
 import me.toast.engine.world.entities.RenderEntity;
 import me.toast.engine.world.systems.RenderSystem;
-import me.toast.engine.world.systems.RigidBodySystem;
 import org.joml.*;
 
 import java.lang.Math;
@@ -51,6 +50,8 @@ public class DeathmatchMod extends Mod {
                 Window.InputEvents.SetMouseState(true);
             if (Window.InputEvents.isButtonDown(GLFW_MOUSE_BUTTON_RIGHT))
                 Window.InputEvents.SetMouseState(false);
+
+            test.transform.position.y += 2f * (1f/Window.Delta);
         }
 
         @Override
