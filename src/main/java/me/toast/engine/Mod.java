@@ -18,8 +18,7 @@ public abstract class Mod {
     public static Engine Ashley;
     public static UserInterface Ultralight;
     public static Renderer RenderEngine;
-
-    public Camera Camera;
+    public static Camera Cam;
 
     public Mod(String id, String name, String description, String author) {
         this.ID = id;
@@ -44,6 +43,7 @@ public abstract class Mod {
 
     public static void Update(float deltaTime) {
         Ashley.update(deltaTime);
+        Cam.Update(deltaTime);
         //Ultralight.Update();
         LOADED_MOD.M_Update(deltaTime);
     } //Handle Input and then update game logic

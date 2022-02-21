@@ -23,10 +23,10 @@ public class DeathmatchMod extends Mod {
 
     @Override
     public void M_Init() {
-        dragon = new Dragon(new TransformComponent(new Vector3f(0, -25, -15), new Quaternionf(), new Vector3f(1)));
+        dragon = new Dragon(new TransformComponent(new Vector3f(0, -5, -15), new Quaternionf(), new Vector3f(1)));
 
-        Camera = new Camera(new Vector3f(), new Quaternionf());
-        Camera.setProjection((float) Math.toRadians(90f), (float) Window.Width / (float) Window.Height, 0.1f, 1000f);
+        Cam = new Camera(new Vector3f(), new Vector3f());
+        Cam.setProjection((float) Math.toRadians(90f), (float) Window.Width / (float) Window.Height, 0.1f, 1000f);
     }
 
         @Override

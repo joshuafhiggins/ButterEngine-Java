@@ -19,7 +19,7 @@ public class DragonSystem extends EntitySystem {
         for (Entity entity : entities) {
             if (entity instanceof Dragon dragon) {
                 TransformComponent tc = tm.get(dragon);
-                tc.position.y += 2f * deltaTime;
+                //tc.position.y += 2f * deltaTime;
             }
         }
     }

@@ -4,6 +4,7 @@ import com.badlogic.ashley.core.*;
 import com.badlogic.ashley.utils.*;
 import me.toast.engine.Mod;
 import me.toast.engine.world.components.*;
+import static org.lwjgl.opengl.GL33.*;
 
 public class Renderer {
 
@@ -17,6 +18,9 @@ public class Renderer {
 
     public Renderer(Engine engine) {
         entities = engine.getEntitiesFor(Family.all(TransformComponent.class, MeshComponent.class).get());
+
+        glEnable(GL_DEPTH_TEST);
+        glEnable(GL_CULL_FACE);
     }
 
     public void Render() {
@@ -25,7 +29,7 @@ public class Renderer {
             TransformComponent tComponent = tm.get(entity);
             MeshComponent rComponent = rm.get(entity);
 
-            rComponent.mesh.Render(tComponent, Mod.LOADED_MOD.Camera);
+            rComponent.mesh.Render(tComponent, Mod.LOADED_MOD.Cam);
         }
     }
 
