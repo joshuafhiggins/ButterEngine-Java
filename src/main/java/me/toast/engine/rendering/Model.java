@@ -88,7 +88,7 @@ public class Model {
                     meshTextureCoord.y = texture.y();
                 }
 
-                vertexList[j] = new Vertex(meshVertex, new Vector3f(), meshTextureCoord, meshNormal);
+                vertexList[j] = new Vertex(meshVertex, new Vector3f(1, 1, 1), meshTextureCoord, meshNormal);
             }
 
             int faceCount = meshes[i].mNumFaces();

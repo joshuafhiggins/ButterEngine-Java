@@ -10,8 +10,9 @@ public class Input {
     private final boolean[] keys = new boolean[GLFW.GLFW_KEY_LAST];
     private final boolean[] buttons = new boolean[GLFW.GLFW_MOUSE_BUTTON_LAST];
 
-    public double mouseX, mouseY;
-    public double scrollX, scrollY;
+    //TODO: This should be private with getters and setters for GLFW calls to actually change things
+    public float mouseX, mouseY;
+    public float scrollX, scrollY;
 
     public GLFWKeyCallback KeyboardCallback;
     public GLFWCharCallback CharCallback;
@@ -30,8 +31,8 @@ public class Input {
 
         MouseMoveCallback = new GLFWCursorPosCallback() {
             public void invoke(long window, double xpos, double ypos) {
-                mouseX = xpos;
-                mouseY = ypos;
+                mouseX = (float) xpos;
+                mouseY = (float) ypos;
             }
         };
 
@@ -43,22 +44,21 @@ public class Input {
 
         MouseScrollCallback = new GLFWScrollCallback() {
             public void invoke(long window, double offsetx, double offsety) {
-                scrollX += offsetx;
-                scrollY += offsety;
+                scrollX += (float) offsetx;
+                scrollY += (float) offsety;
             }
         };
 
         WindowResizeCallback = new GLFWWindowSizeCallback() {
             @Override
             public void invoke(long window, int width, int height) {
-                if(Mod.LOADED_MOD.Window.Capabilities != null) {
-                    Mod.LOADED_MOD.Window.Width = width;
-                    Mod.LOADED_MOD.Window.Height = height;
+                if(Mod.Window.Capabilities != null) {
+                    Mod.Window.Width = width;
+                    Mod.Window.Height = height;
                     glViewport(0, 0, width, height);
-                    Mod.LOADED_MOD.Cam
-                            .setProjection((float) Math.toRadians(45f), (float) width/ (float) height, 0.1f, 1000f);
-                    if (Mod.LOADED_MOD.Ultralight != null) {
-                        Mod.LOADED_MOD.Ultralight.webController.resize(width, height);
+                    Mod.Cam.setProjection((float) Math.toRadians(45f), (float) width/ (float) height, 0.1f, 1000f);
+                    if (Mod.Ultralight != null) {
+                        Mod.Ultralight.webController.resize(width, height);
                     }
                 }
             }
@@ -88,10 +88,10 @@ public class Input {
     }
 
     public void SetMouseState(boolean lock) {
-        GLFW.glfwSetInputMode(Mod.LOADED_MOD.Window.ID, GLFW.GLFW_CURSOR, lock ? GLFW.GLFW_CURSOR_DISABLED : GLFW.GLFW_CURSOR_NORMAL);
+        GLFW.glfwSetInputMode(Mod.Window.ID, GLFW.GLFW_CURSOR, lock ? GLFW.GLFW_CURSOR_DISABLED : GLFW.GLFW_CURSOR_NORMAL);
     }
 
     public boolean GetMouseState() {
-        return GLFW.glfwGetInputMode(Mod.LOADED_MOD.Window.ID, GLFW.GLFW_CURSOR) != GLFW.GLFW_CURSOR_DISABLED;
+        return GLFW.glfwGetInputMode(Mod.Window.ID, GLFW.GLFW_CURSOR) != GLFW.GLFW_CURSOR_DISABLED;
     }
 }

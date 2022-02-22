@@ -26,7 +26,8 @@ Butter Engine is a game engine made in LWJGL and uses its subset libraries for v
 
 ### Worlds
    - [X] Entity Creation
-   - [X] Logic Creation
+   - [X] Logic Creationw
+   - [X] Free (Not tied to a person) Camera
    - [ ] First Person Camera
    - [ ] Hammer Support for Making Maps
   
