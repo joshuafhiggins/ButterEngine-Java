@@ -95,8 +95,6 @@ public class Camera {
 
         view.lookAt(Position, new Vector3f(Position).add(cameraFront), cameraUp);
 
-        //view.rotate(Rotation);
-        //view.translate(Position.mul(-1, new Vector3f()));
         return view;
     }
 }

@@ -29,7 +29,7 @@ public class Renderer {
             TransformComponent tComponent = tm.get(entity);
             MeshComponent rComponent = rm.get(entity);
 
-            rComponent.mesh.Render(tComponent, Mod.LOADED_MOD.Cam);
+            rComponent.mesh.Render(tComponent, Mod.Cam);
         }
     }
 
