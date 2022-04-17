@@ -78,7 +78,7 @@ public class WebController {
         this.renderer = UltralightRenderer.create();
         this.renderer.logMemoryUsage();
 
-        this.view = renderer.createView(Mod.LOADED_MOD.Window.Width, Mod.LOADED_MOD.Window.Height,
+        this.view = renderer.createView(Mod.Window.Width, Mod.Window.Height,
                 new UltralightViewConfig()
                         .isAccelerated(true)
                         .initialDeviceScale(1.0)

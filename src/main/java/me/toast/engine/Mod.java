@@ -37,20 +37,20 @@ public abstract class Mod {
         Ashley = new Engine();
         Systems.AddEntitySystems();
         RenderEngine = new Renderer(Ashley);
-        //Ultralight = new UserInterface(Window);
+        Ultralight = new UserInterface(Window);
         LOADED_MOD.M_Init();
     } //Initialize systems, texture, models, assets, etc.
 
     public static void Update(float deltaTime) {
         Ashley.update(deltaTime);
         Cam.Update(deltaTime);
-        //Ultralight.Update();
+        Ultralight.Update();
         LOADED_MOD.M_Update(deltaTime);
     } //Handle Input and then update game logic
 
     public static void Render() {
         RenderEngine.Render();
-        //Ultralight.Render();
+        Ultralight.Render();
         LOADED_MOD.M_Render();
     } //Draw Stuff
 
@@ -60,7 +60,7 @@ public abstract class Mod {
         Ashley.removeAllSystems();
         Window.Cleanup();
         RenderEngine.Cleanup();
-        //Ultralight.Cleanup();
+        Ultralight.Cleanup();
         AssetPool.CleanupAll();
 
         LOADED_MOD.M_Cleanup();
