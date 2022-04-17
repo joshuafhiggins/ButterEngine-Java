@@ -72,7 +72,7 @@ public class WebController {
     }
 
     public void initGPUDriver() {
-        this.driver = new UltralightOpenGLGPUDriverNative(this.window, false, GLFW.Functions.GetProcAddress);
+        this.driver = new UltralightOpenGLGPUDriverNative(this.window, true, GLFW.Functions.GetProcAddress);
 
         this.platform.setGPUDriver(this.driver);
         this.renderer = UltralightRenderer.create();
