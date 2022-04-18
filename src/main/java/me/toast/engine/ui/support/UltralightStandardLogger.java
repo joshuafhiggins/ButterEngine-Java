@@ -33,7 +33,7 @@ public class UltralightStandardLogger implements UltralightLogger {
      * new lines, so if you want really pretty log output reformat the string accordingly.
      * <p>
      * This logger is <b>NOT</b> called for {@code console.log} messages, see {@link
-     * me.toast.engine.ui.listener.UIViewListener#onAddConsoleMessage(MessageSource, MessageLevel, String, long, long, String)} for that
+     * com.labymedia.ultralight.lwjgl3.opengl.listener.UIViewListener#onAddConsoleMessage(MessageSource, MessageLevel, String, long, long, String)} for that
      * instead.
      *
      * @param level   The level of the message
