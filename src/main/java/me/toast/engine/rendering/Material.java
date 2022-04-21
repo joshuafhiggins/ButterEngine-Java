@@ -15,6 +15,7 @@ public class Material {
     }
 
     public void Bind() {
+        //TODO: Make a manager for active textures
         glActiveTexture(GL_TEXTURE0);
         Albedo.Bind();
     }
