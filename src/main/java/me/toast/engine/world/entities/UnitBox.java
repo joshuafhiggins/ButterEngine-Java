@@ -4,13 +4,10 @@ import com.badlogic.ashley.core.Entity;
 import me.toast.engine.AssetPool;
 import me.toast.engine.Mod;
 import me.toast.engine.rendering.Mesh;
-import me.toast.engine.rendering.Model;
 import me.toast.engine.rendering.Vertex;
 import me.toast.engine.world.components.MeshComponent;
 import me.toast.engine.world.components.TransformComponent;
-import org.joml.Vector2f;
 import org.joml.Vector3f;
-import org.lwjgl.assimp.AIVector3D;
 
 public class UnitBox extends Entity {
 
