@@ -21,23 +21,10 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
-#Compile Directories
 out/
-
-#Ultralight Java bin files
-bin/ultralight-java.dll
-bin/ultralight-java-gpu.dll
-bin/libultralight-java-gpu.so
-bin/libultralight-java.so
-bin/libultralight-java.dylib
-bin/libultralight-java-gpu.dylib
-
-# File-based project format
 *.iws
-
+*.ipr
+*.iml
+.idea/
 .gradle/
-build/
-example.js
-example.html
-style.css
-out.png
+target/
