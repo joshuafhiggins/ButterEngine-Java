@@ -57,9 +57,9 @@ public class Input {
                     Mod.Window.Height = height;
                     glViewport(0, 0, width, height);
                     Mod.Cam.setProjection((float) Math.toRadians(45f), (float) width/ (float) height, 0.1f, 1000f);
-                    if (Mod.Ultralight != null) {
-                        Mod.Ultralight.webController.resize(width, height);
-                    }
+//                    if (Mod.Ultralight != null) {
+//                        Mod.Ultralight.webController.resize(width, height);
+//                    }
                 }
             }
         };
