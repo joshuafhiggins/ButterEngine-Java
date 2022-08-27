@@ -17,6 +17,7 @@
         <joml.version>1.10.4</joml.version>
         <imgui.java.version>1.86.4</imgui.java.version>
         <ashley.version>1.7.4</ashley.version>
+        <physx-jni.version>1.0.0</physx-jni.version>
     </properties>
 
     <profiles>
@@ -100,6 +101,30 @@
             <groupId>com.badlogicgames.ashley</groupId>
             <artifactId>ashley</artifactId>
             <version>${ashley.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>de.fabmax</groupId>
+            <artifactId>physx-jni</artifactId>
+            <version>${physx-jni.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>de.fabmax</groupId>
+            <artifactId>physx-jni</artifactId>
+            <classifier>natives-windows</classifier>
+            <version>${physx-jni.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>de.fabmax</groupId>
+            <artifactId>physx-jni</artifactId>
+            <classifier>natives-linux</classifier>
+            <version>${physx-jni.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>de.fabmax</groupId>
+            <artifactId>physx-jni</artifactId>
+            <classifier>natives-macos</classifier>
+            <version>${physx-jni.version}</version>
         </dependency>
     </dependencies>
 </project>
