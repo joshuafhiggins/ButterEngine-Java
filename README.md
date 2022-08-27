@@ -5,55 +5,66 @@ Butter Engine is a game engine made in LWJGL and uses its subset libraries for v
 ## TODO / What I'm working on for a first release:
   
 ### Rendering
-   - [X] Rasterization Pipeline Shader Support
+   - [X] Implement OpenGL 3.3 
+   - [X] Shader Support
    - [X] Mesh System
-   - [ ] Model/Animation/Physic Loading
+   - [ ] Separate Entity Rendering from World Rendering
+   - [ ] Model/Animation Loading
    - [ ] Multi-Texture Support/Materials
    - [ ] Transparency
-   - [ ] Phong Lighting Model
-   - [ ] PBR Lighting Model
+   - [ ] Phong or PBR Lighting Model
    - [ ] Dynamic Lights
    - [ ] Baked Lighting
 
 ### UI
-   - [ ] Integrate Ultralight
+   - [ ] Implement Nuklear
    - [ ] Support On-Screen UIs and Menus
+   - [ ] Input Switching
 
-### Physics (Maybe redo this)
-   - [X] Implement JBullet
-   - [X] Math Compatibility
-   - [X] Physics Model Loading
+### Physics
+   - [ ] Implement PhysX-JNI
+   - [ ] Math Compatibility
+   - [ ] Physics Model Loading
 
 ### Worlds
+   - [X] Implement Ashley
    - [X] Entity Creation
-   - [X] Logic Creationw
-   - [X] Free (Not tied to a person) Camera
-   - [ ] First Person Camera
-   - [ ] Hammer Support for Making Maps
+   - [X] Logic Creation
+   - [ ] Import Hammer Maps
+   - [ ] Support Hammer Entities
   
 ### Audio
+   - [ ] Implement OpenAL
    - [ ] Spacial Audio
    - [ ] Any-Sound Playback
    - [ ] Volume Control
  
 ### Proper Modding Support
+- [ ] Event Systems
    - [ ] Documentation
    - [ ] Mod Loading/Unloading
-   - [ ] Event Systems
    - [ ] Editor UI with ImGUI (Should be own section)
+
+### Base Engine
+  - [X] Free Camera
+  - [ ] Source Engine Movement Controller
 
 ## Advanced Features (way after first stable release)
 
 ### Networking
-- [ ] Implement Kyronet & SteamWorks
-- [ ] Support Engine Functions over Networking
+  - [ ] Implement Netty
+  - [ ] UDP & Reliable UDP
+  - [ ] Remote Function Calling
+  - [ ] Networked Source Engine Movement Controller
 
 ### Rendering
+   - [ ] Deferred Rendering
    - [ ] Raytracing
-   - [ ] Vulkan/DirectX Support
+   - [ ] OpenGL 4.4 Support
+   - [ ] Vulkan Support
 
 ### Audio
    - [ ] Steam Audio
 
 ~~Butter Engine is under the MIT License, check the [license](https://github.com/higgy999/ButterEngine/blob/main/LICENSE.md) for more details.
-The libraries Butter Engine uses fall under their own respective licenses.~~ I want to revalueate my choices.
+The libraries Butter Engine uses fall under their own respective licenses.~~ I want to reevaluate my choices.
