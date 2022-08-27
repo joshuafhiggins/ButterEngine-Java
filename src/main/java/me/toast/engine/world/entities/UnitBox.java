@@ -14,7 +14,7 @@ public class UnitBox extends Entity {
     public MeshComponent meshCom;
     public TransformComponent transform;
 
-    static Vector3f[] cube_vertices = {
+    static final Vector3f[] cube_vertices = {
             // front
             new Vector3f(-1.0f, -1.0f, 1.0f),
             new Vector3f(1.0f, -1.0f, 1.0f),
@@ -27,7 +27,7 @@ public class UnitBox extends Entity {
             new Vector3f(-1.0f,  1.0f, -1.0f)
     };
 
-    static int[] cube_elements = {
+    static final int[] cube_elements = {
             // front
             0, 1, 2,
             2, 3, 0,
