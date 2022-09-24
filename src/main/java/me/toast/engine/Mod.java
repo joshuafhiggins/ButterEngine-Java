@@ -16,7 +16,7 @@ public abstract class Mod {
 
     public static Window Window;
     public static Engine Ashley;
-    public static UserInterface Ultralight;
+    public static UserInterface UI;
     public static Renderer RenderEngine;
     public static Camera Cam;
 
