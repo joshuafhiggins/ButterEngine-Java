@@ -1,11 +1,12 @@
 package me.toast.engine.util;
 
+import static org.lwjgl.glfw.GLFW.glfwGetTime;
+
 public class Time {
 
-    public static float timeStarted = System.nanoTime();
-    public static float getTime() { return (float)((System.nanoTime() - timeStarted) * 1E-9); }
-    public static float deltaTime = 0f;
-    private static float endTime, beginTime;
+    public static double timeStarted = Time.getTime();
+    public static double deltaTime = 0f;
+    private static double endTime, beginTime;
 
     public static void Init() {
         deltaTime = 0f;
@@ -17,5 +18,9 @@ public class Time {
         endTime = Time.getTime();
         deltaTime = endTime - beginTime;
         beginTime = Time.getTime();
+    }
+
+    public static double getTime() {
+        return glfwGetTime();
     }
 }

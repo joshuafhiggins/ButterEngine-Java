@@ -16,7 +16,7 @@ public class Main {
                 Mod.Window.PollEvents();
                 Mod.Window.Clear();
 
-                Mod.Update(Time.deltaTime);
+                Mod.Update((float)Time.deltaTime);
                 Mod.Render();
 
                 Mod.Window.SwapBuffers();
