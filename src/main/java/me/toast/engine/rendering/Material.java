@@ -10,8 +10,8 @@ public class Material {
     public Texture Albedo;
 
     //TODO: Load from material file
-    public Material(String name) {
-        Albedo = AssetPool.getTexture(name + "_Albedo");
+    public Material(String albedo) {
+        Albedo = AssetPool.getTexture(albedo);
     }
 
     public void Bind() {
